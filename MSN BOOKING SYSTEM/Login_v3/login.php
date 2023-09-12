@@ -1,3 +1,39 @@
+<?php
+session_start();
+
+if (isset($_POST['email'])) {
+	$_SESSION['email'] = $_POST['email']; 
+
+	require_once "db.php";
+ 
+if(isset($_SESSION['email'])) {
+	var_dump($_POST['$email']);
+
+    header("Location: ../index.php");
+}
+ 
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+ 
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $email_error = "Please Enter Valid Email ID";
+    }
+    if(strlen($password) < 6) {
+        $password_error = "Password must be minimum of 6 characters";
+    }  
+ 
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' and password = '" . md5($password). "'");
+   if(!empty($result)){
+        if ($row = mysqli_fetch_array($result)) {
+            
+            header("Location: ../dropdown-18/profile.php");
+			exit;
+        } 
+    }else {
+        $error_message = "Incorrect Email or Password!!!";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,36 +141,3 @@
 
 </body>
 </html>
-<?php
-session_start();
- 
-
-if (isset($_POST['login'])) {
-
-	require_once "db.php";
- 
-if(isset($_SESSION['id'])!="") {
-    header("Location: ..\MSN BOOKING SYSTEM\index.php");
-}
- 
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
- 
-    if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-        $email_error = "Please Enter Valid Email ID";
-    }
-    if(strlen($password) < 6) {
-        $password_error = "Password must be minimum of 6 characters";
-    }  
- 
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' and password = '" . md5($password). "'");
-   if(!empty($result)){
-        if ($row = mysqli_fetch_array($result)) {
-            
-            header("Location: ..\MSN BOOKING SYSTEM\index.php");
-        } 
-    }else {
-        $error_message = "Incorrect Email or Password!!!";
-    }
-}
-?>

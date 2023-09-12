@@ -125,9 +125,13 @@ $code = rand();
 $sql =  "UPDATE users SET password ='$password' WHERE email = '$email'";
 $qry = mysqli_query($conn,$sql);
 
-echo '<script>';
-echo 'alert("Reset Succesfully")';
-echo '</script>';
+if($qry){
+	echo '<script>';
+	echo 'alert("Reset Succesfully")';
+	echo '</script>';
+}
+
+
 
 
 }
