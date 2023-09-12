@@ -179,42 +179,44 @@
     </style>                     
     <div class="container"> 
         <div class="card"> 
-            <div class="info"> 
-                <span>My Profile</span> 
-                <button type="submit" name="saveprofilebutton">Edit</button> 
-            </div> 
-            <div class="forms"> 
-                <div class="inputs"> 
-                    <span>Username</span> 
-                    <input type="text" name="name" id="name"> 
+            <form method="POST">
+                <div class="info"> 
+                    <span>My Profile</span> 
+                    <button type="submit" name="saveprofilebutton">Edit</button> 
                 </div> 
-                <div class="inputs"> 
-                <span>Full Name</span> 
-                <input type="text" name="fullname" id="fullname"> 
-                </div>  
-                <div class="inputs"> 
-                    <span>Email</span> 
-                <input type="text" name="email" id="email">
+                <div class="forms"> 
+                    <div class="inputs"> 
+                        <span>Username</span> 
+                        <input type="text" name="name" id="name"> 
+                    </div> 
+                    <div class="inputs"> 
+                    <span>Full Name</span> 
+                    <input type="text" name="fullname" id="fullname"> 
+                    </div>  
+                    <div class="inputs"> 
+                        <span>Email</span> 
+                    <input type="text" name="email" id="email">
+                    </div>
+                    <div class="inputs"> 
+                    <span>Mobile Phone</span> 
+                    <input type="text" name="phoneNumber" id="phoneNumber"> 
+                    </div>  
+                    <div class="inputs"> 
+                    <span>Gender(Male/Female)</span> 
+                    <input type="text" name="gender" id="gender"> 
+                    </div> 
+                    <!--<input type="radio" name="gender" id="female" value="female"> 
+                    </div> 
+                    <div class="inputs"> 
+                    <span>Gender</span> 
+                    <input type="radio" name="gender" id="male" value="male"> 
+                    </div> -->
+                    <div class="inputs"> 
+                    <span>Date of Birth</span> 
+                    <input type="date" name="dateOfBirth" id="dateOfBirth"> 
+                    </div> 
                 </div>
-                <div class="inputs"> 
-                <span>Mobile Phone</span> 
-                <input type="text" name="phoneNumber" id="phoneNumber"> 
-                </div>  
-                <div class="inputs"> 
-                <span>Gender(Male/Female)</span> 
-                <input type="text" name="gender" id="gender"> 
-                </div> 
-                <!--<input type="radio" name="gender" id="female" value="female"> 
-                </div> 
-                <div class="inputs"> 
-                <span>Gender</span> 
-                <input type="radio" name="gender" id="male" value="male"> 
-                </div> -->
-                <div class="inputs"> 
-                <span>Date of Birth</span> 
-                <input type="date" name="dateOfBirth" id="dateOfBirth"> 
-                </div> 
-            </div> 
+            </form>
         </div>
     </div>
     <!--content end-->                    
@@ -325,8 +327,9 @@
 
     <?php
     session_start();
+    include 'Login_v3/db.php';
 
-                            
+    $email=$_SESSION['email'];                         
     if (isset($_POST['saveprofilebutton'])) {
         $fullname = $_POST['fullname'];
         $phoneNumber = $_POST['phoneNumber'];
@@ -368,28 +371,34 @@ if (isset($_SESSION['email'])) {
     echo 'document.getElementById("email").value = "' . $key . '";';
     echo '</script>';
 
-if(isset($_SESSION['email'])) {
-	var_dump($_POST['$email']);
+// if(isset($_SESSION['email'])) {
+// 	var_dump($_POST['$email']);
 
-    header("Location: ../profile.php");
-}
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' ");
-    if (isset($_POST['saveprofilebutton'])) {
-        $fullname = $_POST['fullname'];
-        $phoneNumber = $_POST['phoneNumber'];
-        $gender = $_POST['gender'];
-        $dateOfBirth = $_POST['dateOfBirth'];
-        $email = $_POST['email'];
+//     header("Location: ../profile.php");
+// }
 
-        $code = rand();
 
-        $sql =  "UPDATE users SET fullname ='$fullname' , phoneNumber ='$phoneNumber',gender ='$gender',dateOfBirth ='$dateOfBirth' WHERE email = '$email'";
-        $qry = mysqli_query($conn,$sql);
+    // $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' ");
 
-        echo '<script>';
-        echo 'alert("Save Succesfully")';
-        echo '</script>';
-    }
+    
+
+
+    // if (isset($_POST['saveprofilebutton'])) {
+        
+    //     $fullname = $_POST['fullname'];
+    //     $phoneNumber = $_POST['phoneNumber'];
+    //     $gender = $_POST['gender'];
+    //     $dateOfBirth = $_POST['dateOfBirth'];
+    //     $email = $_POST['email'];
+    //     $code = rand();
+
+    //     $sql =  "UPDATE users SET fullname ='$fullname' , phoneNumber ='$phoneNumber',gender ='$gender',dateOfBirth ='$dateOfBirth' WHERE email = '$email'";
+    //     $qry = mysqli_query($conn,$sql);
+
+    //     echo '<script>';
+    //     echo 'alert("Save Succesfully")';
+    //     echo '</script>';
+    // }
     
 ?>
    
