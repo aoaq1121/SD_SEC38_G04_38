@@ -186,15 +186,15 @@
             <div class="forms"> 
                 <div class="inputs"> 
                     <span>Current Password</span> 
-                    <input type="password" name="currentpass" id="currentpass"> 
+                    <input type="password" name="currentpass" minlength="6" maxlength="15" id="currentpass"> 
                 </div> 
                 <div class="inputs"> 
                 <span>New Password</span> 
-                <input type="password" name="password" id="password"> 
+                <input type="password" name="password"  minlength="6" maxlength="15" id="password"> 
                 </div>  
                 <div class="inputs"> 
                 <span>Confirm Password</span> 
-                <input type="password" name="cpassword" id="cpassword"> 
+                <input type="password" name="cpassword" minlength="6" maxlength="15" id="cpassword"> 
                 </div>  
             </div> 
         </div>
@@ -213,7 +213,7 @@
                     <a class="btn btn-link" href="">Privacy Policy</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="about.php">FAQs & Help</a>
-                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/login.html">Admin/Staff LogIn</a>
+                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/adminLogin.php">Admin/Staff LogIn</a>
 
                 </div>
                 <div class="col-lg-3 col-md-6">

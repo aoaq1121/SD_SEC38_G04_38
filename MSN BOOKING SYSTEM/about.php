@@ -270,7 +270,7 @@
                     <a class="btn btn-link" href="">Privacy Policy</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="about.php">FAQs & Help</a>
-                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/login.html">Admin/Staff LogIn</a>
+                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/adminLogin.php">Admin/Staff LogIn</a>
 
                 </div>
                 <div class="col-lg-3 col-md-6">

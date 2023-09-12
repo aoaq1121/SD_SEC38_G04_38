@@ -220,17 +220,17 @@
                         tabindex="0"></iframe>
                 </div>
                 <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                    <form>
+                    <form method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Your Name" required>
                                     <label for="name" style="color:lightslategrey">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="youremail"  name="youremail" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="youremail"  name="youremail" placeholder="Your Email" required>
                                     <label for="email" style="color:lightslategrey">Your Email</label>
                                 </div>
                             </div>
@@ -242,7 +242,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
                                     <label for="message" style="color:lightslategrey">Message</label>
                                 </div>
                             </div>
@@ -269,7 +269,7 @@
                     <a class="btn btn-link" href="">Privacy Policy</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="about.php">FAQs & Help</a>
-                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/login.html">Admin/Staff LogIn</a>
+                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/adminLogin.php">Admin/Staff LogIn</a>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -377,7 +377,7 @@ $message = $_POST['message'];
 $code = rand();
 
 $sql = "INSERT INTO contact(yourname, youremail, subject ,message) VALUES('" . $_POST['yourname'] . "', '" . $_POST['youremail'] . "', '" . $_POST['subject'] . "', '" . $_POST['message'] . "')";
-$result = mysqli_query($connection,$sql);
+$result = mysqli_query($conn,$sql);
 
 if ($result) {
 

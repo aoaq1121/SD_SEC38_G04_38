@@ -182,7 +182,7 @@
             <form method="POST">
                 <div class="info"> 
                     <span>My Profile</span> 
-                    <button type="submit" name="saveprofilebutton">Edit</button> 
+                    <button type="submit" name="saveprofilebutton">Save</button> 
                 </div> 
                 <div class="forms"> 
                     <div class="inputs"> 
@@ -198,7 +198,7 @@
                     <input type="text" name="email" id="email">
                     </div>
                     <div class="inputs"> 
-                    <span>Mobile Phone</span> 
+                    <span>Mobile Phone (+60)</span> 
                     <input type="text" name="phoneNumber" id="phoneNumber"> 
                     </div>  
                     <div class="inputs"> 
@@ -233,7 +233,7 @@
                     <a class="btn btn-link" href="">Privacy Policy</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="about.php">FAQs & Help</a>
-                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/login.html">Admin/Staff LogIn</a>
+                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/adminLogin.php">Admin/Staff LogIn</a>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -365,10 +365,20 @@ if (isset($_SESSION['email'])) {
 
     $name = $row['name'];
     $email = $row['email'];
+    $fullname = $row['fullname'];
+    $phoneNumber = $row['phoneNumber'];
+    $gender = $row['gender'];
+    $dateOfBirth = $row['dateOfBirth'];
+    
 
     echo '<script>';
     echo 'document.getElementById("name").value = "' . $name . '";';
     echo 'document.getElementById("email").value = "' . $key . '";';
+    echo 'document.getElementById("fullname").value = "' . $fullname . '";';
+    echo 'document.getElementById("phoneNumber").value = "' . $phoneNumber . '";';
+    echo 'document.getElementById("gender").value = "' . $gender. '";';
+    echo 'document.getElementById("dateOfBirth").value = "' . $dateOfBirth . '";';
+    
     echo '</script>';
 
 // if(isset($_SESSION['email'])) {

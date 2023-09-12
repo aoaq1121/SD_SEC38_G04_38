@@ -53,12 +53,12 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter new password">
-						<input class="input100" type="password" name="password" id="password" placeholder="New Password" maxlength="8" required="">
+						<input class="input100" type="password" name="password" id="password" placeholder="New Password" minlength="6" maxlength="15" required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Confirm password">
-						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" maxlength="8" required="">
+						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" minlength="6" maxlength="15" required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 

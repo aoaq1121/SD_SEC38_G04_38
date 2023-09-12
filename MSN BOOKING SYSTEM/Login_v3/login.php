@@ -6,12 +6,6 @@ if (isset($_POST['email'])) {
 
 	require_once "db.php";
  
-if(isset($_SESSION['email'])) {
-	var_dump($_POST['$email']);
-
-    header("Location: ../index.php");
-}
- 
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
  
@@ -26,7 +20,7 @@ if(isset($_SESSION['email'])) {
    if(!empty($result)){
         if ($row = mysqli_fetch_array($result)) {
             
-            header("Location: ../dropdown-18/profile.php");
+            header("Location: ../index.php");
 			exit;
         } 
     }else {
@@ -84,7 +78,7 @@ if(isset($_SESSION['email'])) {
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Password" maxlength="8" required="">
+						<input class="input100" type="password" name="password" placeholder="Password" minlength="6" maxlength="15" required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"><?php if (isset($password_error)) echo $password_error; ?></span>
 					</div>
 

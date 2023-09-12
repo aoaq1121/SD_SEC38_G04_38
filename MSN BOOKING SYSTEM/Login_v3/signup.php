@@ -43,22 +43,22 @@
 					</span>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="name" id="name" placeholder="Name" required="">
+						<input class="input100" type="text" name="name" id="name" placeholder="Username" required="">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter email">
-						<input class="input100" type="email" name="email" id="email" placeholder="Email" maxlength="30" required="">
+						<input class="input100" type="email" name="email" id="email" placeholder="Email"  required="">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" id="password" placeholder="Password" maxlength="8" required="">
+						<input class="input100" type="password" name="password" id="password" placeholder="Password" minlength="6" maxlength="15" required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Confirm password">
-						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" maxlength="8" required="">
+						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" minlength="6" maxlength="15" required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 

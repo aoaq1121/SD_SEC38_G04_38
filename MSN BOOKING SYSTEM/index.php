@@ -164,7 +164,7 @@
                         <p class="fs-4 text-white mb-4 animated slideInDown">Empowering Your Play. Book Your Victory Today!</p>
                         <div class="position-relative w-75 mx-auto animated slideInDown">
                             <!--<input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Thailand">-->
-                            <button type="button" onclick="window.location.href = 'booking.html';" class="btn btn-primary rounded-pill py-3 px-5 align-self-center top-0 end-0 me-2" style="font-size:20px; margin-top:9px;">Book Now</button>
+                            <button type="button" onclick="window.location.href = 'booking.php';" class="btn btn-primary rounded-pill py-3 px-5 align-self-center top-0 end-0 me-2" style="font-size:20px; margin-top:9px;">Book Now</button>
                         </div>
                     </div>
                 </div>
@@ -202,7 +202,7 @@
                             <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Soccer Field</p>
                         </div>
                     </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="about.php">Read More</a>
                 </div>
             </div>
         </div>
@@ -467,7 +467,7 @@
                     <a class="btn btn-link" href="">Privacy Policy</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="about.php">FAQs & Help</a>
-                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/login.html">Admin/Staff LogIn</a>
+                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/adminLogin.php">Admin/Staff LogIn</a>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
