@@ -179,24 +179,26 @@
     </style>                     
     <div class="container"> 
         <div class="card"> 
-            <div class="info"> 
-                <span>Change Password</span> 
-                <button type="submit" name="changepasswordbutton">Change</button> 
-            </div> 
-            <div class="forms"> 
-                <div class="inputs"> 
-                    <span>Current Password</span> 
-                    <input type="password" name="currentpass" minlength="6" maxlength="15" id="currentpass"> 
+        <form method="POST">
+                <div class="info"> 
+                    <span>Change Password</span> 
+                    <button type="submit" name="changepasswordbutton">Change</button> 
+                </div>
+                <div class="forms"> 
+                    <div class="inputs"> 
+                        <span>Current Password</span> 
+                        <input type="password" name="currentpass" minlength="6" maxlength="15" id="currentpass"> 
+                    </div> 
+                    <div class="inputs"> 
+                    <span>New Password</span> 
+                    <input type="password" name="password"  minlength="6" maxlength="15" id="password"> 
+                    </div>  
+                    <div class="inputs"> 
+                    <span>Confirm Password</span> 
+                    <input type="password" name="cpassword" minlength="6" maxlength="15" id="cpassword"> 
+                    </div>  
                 </div> 
-                <div class="inputs"> 
-                <span>New Password</span> 
-                <input type="password" name="password"  minlength="6" maxlength="15" id="password"> 
-                </div>  
-                <div class="inputs"> 
-                <span>Confirm Password</span> 
-                <input type="password" name="cpassword" minlength="6" maxlength="15" id="cpassword"> 
-                </div>  
-            </div> 
+            </form>
         </div>
     </div>
     <!--content end-->                    
@@ -306,18 +308,19 @@
 
 
     <?php
-
-    include('db.php');
+    session_start();
+    include('Login_v3/db.php');
 
     if (isset($_POST['changepasswordbutton'])) {
 
-    $email = $_POST['email'];
+    $email = $_SESSION['email'];
 
-    $password = md5($_POST['password']).rand(10,9999);
+    $password = md5($_POST['password']);
 
     $code = rand();
 
-    $sql =  "UPDATE users SET password ='$password' WHERE email = '$email'";
+    $sql =  "UPDATE users SET password = '$password' WHERE email = '$email'";
+    var_dump($sql);
     $qry = mysqli_query($conn,$sql);
     
     if($qry){

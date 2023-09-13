@@ -118,7 +118,7 @@ if (isset($_POST['resetpasswordbutton'])) {
 
 $email = $_POST['email'];
 
-$password = md5($_POST['password']).rand(10,9999);
+$password = md5($_POST['password']);
 
 $code = rand();
 
