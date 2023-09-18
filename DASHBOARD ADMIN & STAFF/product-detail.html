@@ -3,7 +3,7 @@
 	<head>
 		<!-- Basic Page Info -->
 		<meta charset="utf-8" />
-		<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+		<title>MSN - Administrator Dashboard</title>
 
 		<!-- Site favicon -->
 		<link
@@ -204,7 +204,7 @@
 									</li>
 									<li>
 										<a href="#">
-											<img src="vendors/images/photo1.jpg" alt="" />
+											<img src="vendors/images/profilelogo.png" alt="" />
 											<h3>Lea R. Frith</h3>
 											<p>
 												Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -266,23 +266,23 @@
 							data-toggle="dropdown"
 						>
 							<span class="user-icon">
-								<img src="vendors/images/photo1.jpg" alt="" />
+								<img src="vendors/images/profilelogo.png" alt="" />
 							</span>
-							<span class="user-name">Ross C. Lopez</span>
+							<span class="user-name"><?php echo $fName?></span>
 						</a>
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
 						>
-							<a class="dropdown-item" href="profile.html"
+							<a class="dropdown-item" href="profile.php"
 								><i class="dw dw-user1"></i> Profile</a
 							>
-							<a class="dropdown-item" href="profile.html"
+							<a class="dropdown-item" href="profile.php"
 								><i class="dw dw-settings2"></i> Setting</a
 							>
 							<a class="dropdown-item" href="faq.html"
 								><i class="dw dw-help"></i> Help</a
 							>
-							<a class="dropdown-item" href="login.html"
+							<a class="dropdown-item" href="adminLogin.php"
 								><i class="dw dw-logout"></i> Log Out</a
 							>
 						</div>
@@ -468,7 +468,7 @@
 
 		<div class="left-side-bar">
 			<div class="brand-logo">
-				<a href="index.html">
+				<a href="index.php">
 					<img src="vendors/images/deskapp-logo.svg" alt="" class="dark-logo" />
 					<img
 						src="vendors/images/deskapp-logo-white.svg"
@@ -489,7 +489,7 @@
 								><span class="mtext">Home</span>
 							</a>
 							<ul class="submenu">
-								<li><a href="index.html">Dashboard style 1</a></li>
+								<li><a href="index.php">Dashboard style 1</a></li>
 								<li><a href="index2.html">Dashboard style 2</a></li>
 								<li><a href="index3.html">Dashboard style 3</a></li>
 							</ul>
@@ -584,7 +584,7 @@
 							</a>
 							<ul class="submenu">
 								<li><a href="video-player.html">Video Player</a></li>
-								<li><a href="login.html">Login</a></li>
+								<li><a href="adminLogin.php">Login</a></li>
 								<li><a href="forgot-password.html">Forgot Password</a></li>
 								<li><a href="reset-password.html">Reset Password</a></li>
 							</ul>
@@ -616,7 +616,7 @@
 								<li><a href="product.html">Product</a></li>
 								<li><a href="product-detail.html">Product Detail</a></li>
 								<li><a href="faq.html">FAQ</a></li>
-								<li><a href="profile.html">Profile</a></li>
+								<li><a href="profile.php">Profile</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
 								<li><a href="pricing-table.html">Pricing Tables</a></li>
 							</ul>
@@ -714,7 +714,7 @@
 								<nav aria-label="breadcrumb" role="navigation">
 									<ol class="breadcrumb">
 										<li class="breadcrumb-item">
-											<a href="index.html">Home</a>
+											<a href="index.php">Home</a>
 										</li>
 										<li class="breadcrumb-item active" aria-current="page">
 											Product Detail

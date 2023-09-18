@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<!-- Basic Page Info -->
 		<meta charset="utf-8" />
-		<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+		<title>DeskApp - MSN Dashboard HTML Template</title>
 
 		<!-- Site favicon -->
 		<link
@@ -78,19 +82,20 @@
 		</script>
 		<!-- End Google Tag Manager -->
 	</head>
-	<body class="login-page">
+
+	<body>
 		<div class="login-header box-shadow">
 			<div
 				class="container-fluid d-flex justify-content-between align-items-center"
 			>
 				<div class="brand-logo">
-					<a href="login.html">
+					<a href="adminLogin.php">
 						<img src="vendors/images/deskapp-logo.svg" alt="" />
 					</a>
 				</div>
 				<div class="login-menu">
 					<ul>
-						<li><a href="register.html">Register</a></li>
+						<li><a href="#">Login</a></li>
 					</ul>
 				</div>
 			</div>
@@ -100,111 +105,53 @@
 		>
 			<div class="container">
 				<div class="row align-items-center">
-					<div class="col-md-6 col-lg-7">
-						<img src="vendors/images/login-page-img.png" alt="" />
+					<div class="col-md-6">
+						<img src="vendors/images/forgot-password.png" alt="" />
 					</div>
-					<div class="col-md-6 col-lg-5">
+					<div class="col-md-6">
 						<div class="login-box bg-white box-shadow border-radius-10">
 							<div class="login-title">
-								<h2 class="text-center text-primary">Login To DeskApp</h2>
+								<h2 class="text-center text-primary">Forgot Password</h2>
 							</div>
-							<form>
-								<div class="select-role">
-									<div class="btn-group btn-group-toggle" data-toggle="buttons">
-										<label class="btn active">
-											<input type="radio" name="options" id="admin" />
-											<div class="icon">
-												<img
-													src="vendors/images/briefcase.svg"
-													class="svg"
-													alt=""
-												/>
-											</div>
-											<span>I'm</span>
-											Manager
-										</label>
-										<label class="btn">
-											<input type="radio" name="options" id="user" />
-											<div class="icon">
-												<img
-													src="vendors/images/person.svg"
-													class="svg"
-													alt=""
-												/>
-											</div>
-											<span>I'm</span>
-											Employee
-										</label>
-									</div>
-								</div>
+							<!--columns-->
+							<h6 class="mb-20">Enter your Username</h6>
+							<form method="POST"> <!-- Updated the form method -->
 								<div class="input-group custom">
-									<input
-										type="text"
-										class="form-control form-control-lg"
-										placeholder="Username"
-									/>
+									<input type="text" class="form-control form-control-lg" placeholder="Username" name="username" />
 									<div class="input-group-append custom">
-										<span class="input-group-text"
-											><i class="icon-copy dw dw-user1"></i
-										></span>
+										<span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
 									</div>
 								</div>
+								<!-- New Password Field -->
 								<div class="input-group custom">
-									<input
-										type="password"
-										class="form-control form-control-lg"
-										placeholder="**********"
-									/>
+									<input type="password" class="form-control form-control-lg" placeholder="New Password" name="password" />
 									<div class="input-group-append custom">
-										<span class="input-group-text"
-											><i class="dw dw-padlock1"></i
-										></span>
+										<span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
 									</div>
 								</div>
-								<div class="row pb-30">
-									<div class="col-6">
-										<div class="custom-control custom-checkbox">
-											<input
-												type="checkbox"
-												class="custom-control-input"
-												id="customCheck1"
-											/>
-											<label class="custom-control-label" for="customCheck1"
-												>Remember</label
-											>
-										</div>
-									</div>
-									<div class="col-6">
-										<div class="forgot-password">
-											<a href="forgot-password.html">Forgot Password</a>
-										</div>
+								<!-- Confirm Password Field -->
+								<div class="input-group custom">
+									<input type="password" class="form-control form-control-lg" placeholder="Confirm Password" name="password" />
+									<div class="input-group-append custom">
+										<span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-sm-12">
+								<div class="row align-items-center">
+									<div class="col-5">
 										<div class="input-group mb-0">
-											<!--
-											use code for form submit
-											<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
-										-->
-											<a
-												class="btn btn-primary btn-lg btn-block"
-												href="index.html"
-												>Sign In</a
-											>
+											
+												<input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit" name="resetpasswordbutton">
+											
 										</div>
-										<div
-											class="font-16 weight-600 pt-10 pb-10 text-center"
-											data-color="#707373"
-										>
+									</div>
+									<div class="col-2">
+										<div class="font-16 weight-600 text-center" data-color="#707373">
 											OR
 										</div>
+									</div>
+									<div class="col-5">
 										<div class="input-group mb-0">
-											<a
-												class="btn btn-outline-primary btn-lg btn-block"
-												href="register.html"
-												>Register To Create Account</a
-											>
+											<a class="btn btn-outline-primary btn-lg btn-block" href="adminLogin.php">Login</a>
 										</div>
 									</div>
 								</div>
@@ -214,7 +161,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- welcome modal start -->
+		<!-- welcome modal start 
 		<div class="welcome-modal">
 			<button class="welcome-modal-close">
 				<i class="bi bi-x-lg"></i>
@@ -286,7 +233,7 @@
 		</div>
 		<button class="welcome-modal-btn">
 			<i class="fa fa-download"></i> Download
-		</button>
+		</button> -->
 		<!-- welcome modal end -->
 		<!-- js -->
 		<script src="vendors/scripts/core.js"></script>
@@ -296,12 +243,60 @@
 		<!-- Google Tag Manager (noscript) -->
 		<noscript
 			><iframe
-				src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
+				src="https://www.googletagmanager.com/ns.php?id=GTM-NXZMQSS"
 				height="0"
 				width="0"
 				style="display: none; visibility: hidden"
 			></iframe
 		></noscript>
 		<!-- End Google Tag Manager (noscript) -->
+
+		<?php
+
+			
+
+			$dbHost = "localhost";
+			$dbUsername = "root";
+			$dbPassword = "root";
+			$dbName = "msnbooking";
+
+			// Establish a database connection
+			$conn = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+
+			if (isset($_POST['resetpasswordbutton'])) {
+				$username = $_POST['username'];
+				$newPassword = md5($_POST['password']);
+				var_dump("password:".$_POST['password']);
+				var_dump($newPassword);
+
+				// Check if the username exists in your database
+				$checkUsernameSql = "SELECT * FROM staff WHERE username = '$username'";
+				$checkUsernameQuery = mysqli_query($conn, $checkUsernameSql);
+
+				if (mysqli_num_rows($checkUsernameQuery) > 0) {
+					// Update the password
+					$updateSql = "UPDATE staff SET password = '$newPassword' WHERE username = '$username'";
+					$updateQuery = mysqli_query($conn, $updateSql);
+
+					if ($updateQuery) {
+						echo '<script>';
+						echo 'alert("Password Reset Successfully")';
+						echo '</script>';
+					} else {
+						echo '<script>';
+						echo 'alert("Password Reset Failed")';
+						echo '</script>';
+					}
+				} else {
+					echo '<script>';
+					echo 'alert("Username not found")';
+					echo '</script>';
+				}
+			}
+		?>
 	</body>
 </html>
