@@ -10,10 +10,12 @@ if (isset($_POST['email'])) {
     $password = mysqli_real_escape_string($conn, $_POST['password']);
  
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-        $email_error = "Please Enter Valid Email ID";
+        //$email_error = "Please Enter Valid Email ID";
+		setcookie("error","Please Enter Valid Email ID",time()+3);
     }
     if(strlen($password) < 6) {
-        $password_error = "Password must be minimum of 6 characters";
+        //$password_error = "Password must be minimum of 6 characters";
+		setcookie("error","Password must be minimum of 6 characters",time()+3);
     }  
  
     $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' and password = '" . md5($password). "'");
@@ -22,9 +24,12 @@ if (isset($_POST['email'])) {
             
             header("Location: ../index.php");
 			exit;
-        } 
+        }
+		else{
+			setcookie("error","Incorrect Email or Password",time()+3);
+		} 
     }else {
-        $error_message = "Incorrect Email or Password!!!";
+        setcookie("error","Incorrect Email or Password",time()+3);
     }
 }
 ?>

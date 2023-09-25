@@ -353,7 +353,7 @@
 				</div>
 			</div>
 		</div>
-
+		<!--sidebar start-->
 		<div class="left-side-bar">
 			<div class="brand-logo">
 				<a href="admin_dashboard.php">
@@ -404,6 +404,8 @@
 								<li><a href="../MSN BOOKING SYSTEM/index.php">Home Page</a></li>
 								<li><a href="../MSN BOOKING SYSTEM/about.php">About Us</a></li>
 								<li><a href="../MSN BOOKING SYSTEM/contact.php">Contact Us</a></li>
+								<li><a href="editcontact.php">Contact Settings</a></li>
+								<li><a href="editabout.php">About Us Settings</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
@@ -469,6 +471,7 @@
 				</div>
 			</div>
 		</div>
+		<!--sidebar end-->
 
 		<div class="mobile-menu-overlay"></div>
 

@@ -173,7 +173,19 @@
     </div>
     <!-- Navbar & Hero End -->
 
+    <?php
+    // Include your database connection code here
+    include("Login_v3/db.php");
 
+
+    // Fetch contact information from the database (assuming you have a 'contacts' table)
+    $query = "SELECT * FROM editabout WHERE id = 1"; // You may need to change '1' to the ID of your contact
+    $result = mysqli_query($conn,$query);
+
+    if ($result && $result->num_rows > 0) {
+    $about = $result->fetch_assoc();
+    }   
+    ?>                   
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -186,14 +198,15 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-grey text-start text-primary pe-3">About Us</h6>
                     <h1 class="text-wheat mb-4">History of <span class="text-primary">MSN</span></h1>
-                    <p class="mb-4">The National Sports Council was established under the National Sports Council Act of Malaysia 1971 and the National Sports Council (Amendment) Act of 1979. 
+                    <!--<p class="mb-4">The National Sports Council was established under the National Sports Council Act of Malaysia 1971 and the National Sports Council (Amendment) Act of 1979. 
                         Its official launch was carried out by the second Prime Minister of Malaysia, Y.A.B Tun Abdul Razak bin Datuk Hussein, on February 21, 1972.</p>
                     <p class="mb-4">In its early stages, high-performance sports programs were implemented under the supervision of the Sports Division, Ministry of Culture, Youth and Sports (the name of the Ministry of Youth and Sports at that time). 
                         To achieve the council's goals, a collective effort involving both governmental and non-governmental agencies, local sports organizations, state sports councils, higher education institutions, voluntary organizations, 
                         and individuals was initiated to ensure that the nation's sports quality could achieve the highest performance.</p>
                     <p class="mb-4">After the reorganization of the council in 1981, it began to move forward and subsequently developed programs and activities to reach the point visible today. The purpose of establishing the 
-                        National Sports Council of Malaysia is in line with the National Sports Policy, which is to fully promote, develop, and achieve excellence in sports at the highest level.</p>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                        National Sports Council of Malaysia is in line with the National Sports Policy, which is to fully promote, develop, and achieve excellence in sports at the highest level.</p>-->
+                    <!--<a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>-->
+                    <p class="mb-4"><?php echo $about ['history'];?></p>
                 </div>
             </div>
         </div>
@@ -213,10 +226,11 @@
                     <div class="service-item rounded pt-3" style="height: 100%;"> <!-- Set fixed height -->
                         <div class="p-4">
                             <h5 style="color:peru">VISI</h5>
-                            <p>Peneraju Sukan Prestasi
+                            <!--<p>Peneraju Sukan Prestasi
                                 Tinggi Terunggul Ke Arah
                                 Melahirkan Lebih Ramai Atlet Bertaraf
-                                Antarabangsa</p>
+                                Antarabangsa</p>-->
+                            <p><?php echo $about ['visi'];?></p>
                         </div>
                     </div>
                 </div>
@@ -224,10 +238,11 @@
                     <div class="service-item rounded pt-3" style="height: 100%;"> <!-- Set fixed height -->
                         <div class="p-4">
                             <h5 style="color:peru">MISI</h5>
-                            <p>Memastikan Program
+                            <!--<p>Memastikan Program
                                 Pembangunan Sukan Berprestasi
                                 Tinggi Dilaksanakan Secara Menyeluruh,
-                                Sistematik Dan Berkesan Di Semua Peringkat</p>
+                                Sistematik Dan Berkesan Di Semua Peringkat</p>-->
+                            <p><?php echo $about ['misi'];?></p>
                         </div>
                     </div>
                 </div>

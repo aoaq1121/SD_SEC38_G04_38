@@ -181,17 +181,31 @@
                 <h6 class="section-title bg-grey text-center text-primary px-3">Contact Us</h6>
                 <h1 class="text-wheat mb-5">Contact For Any Query</h1>
             </div>
+            <?php
+// Include your database connection code here
+include("Login_v3/db.php");
+
+
+// Fetch contact information from the database (assuming you have a 'contacts' table)
+$query = "SELECT office,mobile,name,email FROM editcontact WHERE id = 1"; // You may need to change '1' to the ID of your contact
+$result = mysqli_query($conn,$query);
+
+if ($result && $result->num_rows > 0) {
+    $contact = $result->fetch_assoc();
+}
+?>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 style="color:darkgoldenrod">Get In Touch</h5>
-                    <p class="mb-4">Please fill in the form to give us feedback on our services. Thank you.</p>
+                <h5 style="color:darkgoldenrod">Contact Information</h5>
+                <p class="mb-4"></p>
                     <div class="d-flex align-items-center mb-4">
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
                             <i class="fa fa-map-marker-alt text-white"></i>
                         </div>
                         <div class="ms-3">
                             <h5 class="text-primary">Office</h5>
-                            <p class="mb-0">Jalan 6/27a, Wangsa Maju, 54200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
+                            <!--<p class="mb-0">Jalan 6/27a, Wangsa Maju, 54200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>-->
+                            <p class="mb-0"><?php echo $contact ['office'];?></p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-4">
@@ -200,7 +214,8 @@
                         </div>
                         <div class="ms-3">
                             <h5 class="text-primary">Mobile</h5>
-                            <p class="mb-0">+60 3-4142 0082</p>
+                            <!--<p class="mb-0">+60 3-4142 0082</p>-->
+                            <p class="mb-0"><?php echo "+60".$contact ['mobile'];?></p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
@@ -209,7 +224,9 @@
                         </div>
                         <div class="ms-3">
                             <h5 class="text-primary">Email</h5>
-                            <p class="mb-0">En. Muhammad Amzar Zulhizzam (Penyelia) amzar@nsc.gov.my</p>
+                            <!--<p class="mb-0">En. Muhammad Amzar Zulhizzam (Penyelia) amzar@nsc.gov.my</p>-->
+                            <p class="mb-0"><?php echo $contact ['name'];?></p>
+                            <p class="mb-0"><?php echo $contact['email'];?></p>
                         </div>
                     </div>
                 </div>
@@ -220,10 +237,13 @@
                         tabindex="0"></iframe>
                 </div>
                 <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                <h5 style="color:darkgoldenrod">Get In Touch</h5>
+                <p class="mb-4">Please fill in the form to give us feedback on our services. Thank you.</p>
                     <form method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
+                                <?php include 'protect.php'?>
                                     <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Your Name" required>
                                     <label for="name" style="color:lightslategrey">Your Name</label>
                                 </div>
@@ -321,7 +341,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                        &copy; <a class="border-bottom" href="#">MSN BOOKING SYSTEM</a>, All Right Reserved.
 
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
