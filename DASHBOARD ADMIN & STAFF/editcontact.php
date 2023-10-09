@@ -126,26 +126,49 @@
 				
 				<div class="user-info-dropdown">
 				<?php
-					session_start();
-					$username = $_SESSION['username'];
-					$con=mysqli_connect("localhost","root","root","msnbooking");
-					$sql = "SELECT * FROM admin WHERE username = '$username'";
+				session_start();
+				$username = $_SESSION['username'];
+				$type = $_SESSION['type'];
+				$con = mysqli_connect("localhost", "root", "root", "msnbooking");
 
+				if($type == 'admin'){
+					$sql = "SELECT * FROM admin WHERE username = '$username'";
 					$result = mysqli_query($con, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
-					$row = mysqli_fetch_assoc($result);
-					$fName = $row['fName'];
-					$email = $row['email'];
-					$phoneNumber = $row['phoneNumber'];
-					
-					$gender = $row['gender'];
-					$dob = $row['dob'];
-					$address = $row['address'];
-					$postalcode = $row['postalcode'];
-					$state = $row['state'];
-					$country = $row['country'];
+						$row = mysqli_fetch_assoc($result);
+						$fName = $row['fName'];
+						$email = $row['email'];
+						$phoneNumber = $row['phoneNumber'];
+						$dob = $row['dob'];
+						$gender = $row['gender'];
+						$addresses = $row['address'];
+						$postalcode = $row['postalcode'];
+						$state = $row['state'];
+						$country = $row['country'];
 					}
+				}
+				else if($type == 'staff'){
+					$sql = "SELECT * FROM staff WHERE username = '$username'";
+					$result = mysqli_query($con, $sql);
+
+					if (mysqli_num_rows($result) > 0) {
+						// Fetch the first row
+						$row = mysqli_fetch_assoc($result);
+	
+						// Extract data into variables
+						$fName = $row['fname'];
+						$email = $row['email'];
+						$phoneNumber = $row['phoneNumber'];
+						$dob = $row['dob'];
+						$gender = $row['gender'];
+						$addresses = $row['address'];
+						$postalcode = $row['postalcode'];
+						$state = $row['state'];
+						$country = $row['country'];
+					}
+					mysqli_close($con);
+				}
 				?>
 					<div class="dropdown">
 						<a
@@ -165,23 +188,28 @@
 							<a class="dropdown-item" href="profile.php"
 								><i class="dw dw-user1"></i> Profile</a
 							>
-							<a class="dropdown-item" href="profile.php"
+                            <?php if($_SESSION['type'] == 'staff'){ ?>
+                            <a class="dropdown-item" href="changePassword.php">
+                                <i class="dw dw-user1"></i> Change Password
+                            </a>
+                            <?php }?>
+							<!--<a class="dropdown-item" href="profile.php"
 								><i class="dw dw-settings2"></i> Setting</a
 							>
-							<a class="dropdown-item" href="faq.html"
+							<a class="dropdown-item" href="faq.php"
 								><i class="dw dw-help"></i> Help</a
-							>
+							>-->
 							<a class="dropdown-item" href="adminLogin.php"
 								><i class="dw dw-logout"></i> Log Out</a
 							>
 						</div>
 					</div>
 				</div>
-				<div class="github-link">
+				<!--<div class="github-link">
 					<a href="https://github.com/dropways/deskapp" target="_blank"
 						><img src="vendors/images/github.svg" alt=""
 					/></a>
-				</div>
+				</div>-->
 			</div>
 		</div>
 
@@ -355,123 +383,7 @@
 			</div>
 		</div>
 		<!--sidebar start-->
-		<div class="left-side-bar">
-			<div class="brand-logo">
-				<a href="admin_dashboard.php">
-					<img src="vendors/images/Logo-MSN-Web-copy.png" alt="" class="dark-logo" />
-					<img src="vendors/images/Logo-MSN-Web-copy.png" alt="" class="light-logo"/>
-				</a>
-				<div class="close-sidebar" data-toggle="left-sidebar-close">
-					<i class="ion-close-round"></i>
-				</div>
-			</div>
-
-			<div class="menu-block customscroll">
-				<div class="sidebar-menu">
-					<ul id="accordion-menu">
-						<li>
-							<a href="admin_dashboard.php" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-house"></span
-								><span class="mtext">Home</span>
-							</a>
-						</li>
-						
-						<li>
-							<a href="calendar.html" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-calendar4-week"></span
-								><span class="mtext">Calendar</span>
-							</a>
-						</li>
-						
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
-								<span class="micon bi bi-pie-chart"></span
-								><span class="mtext">Charts</span>
-							</a>
-							<ul class="submenu">
-								<li><a href="highchart.html">Highchart</a></li>
-								<li><a href="knob-chart.html">jQuery Knob</a></li>
-								<li><a href="jvectormap.html">jvectormap</a></li>
-								<li><a href="apexcharts.html">Apexcharts</a></li>
-							</ul>
-						</li>
-
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
-								<span class="micon bi bi-file-earmark-text"></span
-								><span class="mtext">Website Pages</span>
-							</a>
-							<ul class="submenu">
-								<li><a href="../MSN BOOKING SYSTEM/index.php">Home Page</a></li>
-								<li><a href="../MSN BOOKING SYSTEM/about.php">About Us</a></li>
-								<li><a href="../MSN BOOKING SYSTEM/contact.php">Contact Us</a></li>
-								<li><a href="editcontact.php">Contact Settings</a></li>
-								<li><a href="editcontact.php">About Us Settings</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
-								<span class="micon bi bi-bug"></span
-								><span class="mtext">Error Pages</span>
-							</a>
-							<ul class="submenu">
-								<li><a href="400.html">400</a></li>
-								<li><a href="403.html">403</a></li>
-								<li><a href="404.html">404</a></li>
-								<li><a href="500.html">500</a></li>
-								<li><a href="503.html">503</a></li>
-							</ul>
-						</li>
-
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
-								<span class="micon bi bi-back"></span
-								><span class="mtext">Extra Pages</span>
-							</a>
-							<ul class="submenu">
-								<li><a href="blank.html">Blank</a></li>
-								<li><a href="contact-directory.html">Contact Directory</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="blog-detail.html">Blog Detail</a></li>
-								<li><a href="product.html">Product</a></li>
-								<li><a href="product-detail.html">Product Detail</a></li>
-								<li><a href="faq.html">FAQ</a></li>
-								<li><a href="profile.php">Profile</a></li>
-								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="pricing-table.html">Pricing Tables</a></li>
-							</ul>
-						</li>
-						
-						<li>
-							<a href="invoice.html" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-receipt-cutoff"></span
-								><span class="mtext">Invoice</span>
-							</a>
-						</li>
-						<li>
-							<div class="dropdown-divider"></div>
-						</li>
-						<li>
-							<div class="sidebar-small-cap">Extra</div>
-						</li>
-						
-						<li>
-							<a
-								href="https://dropways.github.io/deskapp-free-single-page-website-template/"
-								target="_blank"
-								class="dropdown-toggle no-arrow"
-							>
-								<span class="micon bi bi-layout-text-window-reverse"></span>
-								<span class="mtext"
-									>Landing Page
-									<img src="vendors/images/coming-soon.png" alt="" width="25"
-								/></span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<?php include 'leftsidebar.php';?>
 		<!--sidebar end-->
         <div class="mobile-menu-overlay"></div>
 
@@ -530,9 +442,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newMobile = $_POST['mobile'];
     $newName = $_POST['name'];
     $newEmail = $_POST['email'];
+	$newBusinessHour = $_POST['businesshour'];
 
     // Update the contact information in the database
-    $updateQuery = "UPDATE editcontact SET office='$newOffice', mobile='$newMobile', name='$newName',email='$newEmail' WHERE id=1"; // Change '1' to the ID of your contact
+    $updateQuery = "UPDATE editcontact SET office='$newOffice', mobile='$newMobile', name='$newName',email='$newEmail',businesshour='$newBusinessHour' WHERE id=1"; // Change '1' to the ID of your contact
     //$stmt = $mysqli->prepare($updateQuery);
     //$stmt->bind_param("sss", $newOffice, $newMobile, $newName, $newEmail);
 	$result = mysqli_query($conn,$updateQuery);
@@ -565,16 +478,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             <label for="name">Office Address</label>
                                                             <input class="form-control form-control-lg" type="text" name="office" value="<?php echo $contact['office']; ?>"><br>
                                                             </div>
+															<div class="form-group">
+                                                            <label for="businesshour">Business Hour</label>
+                                                            <input class="form-control form-control-lg" type="text" name="businesshour" value="<?php echo $contact['businesshour']; ?>"><br>
+                                                            </div>
                                                             <div class="form-group">
                                                             <label for="phone">Mobile Phone</label>
                                                             <input class="form-control form-control-lg" type="text" name="mobile" value="<?php echo $contact['mobile']; ?>"><br>
                                                             </div>
                                                             <div class="form-group">
-                                                            <label for="phone">Name</label>
+                                                            <label for="name">Name</label>
                                                             <input class="form-control form-control-lg" type="text" name="name" value="<?php echo $contact['name']; ?>"><br>
                                                             </div>
-                                                            <div class="form-group">
 
+                                                            <div class="form-group">
                                                             <label for="email">Email</label>
                                                             <input class="form-control form-control-lg" type="email" name="email" value="<?php echo $contact['email']; ?>"><br>
                                                             </div>
@@ -596,14 +513,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</div>
 				</div>
             </div>
-			<div class="footer-wrap pd-20 mb-20 card-box">
+			<!--<div class="footer-wrap pd-20 mb-20 card-box">
 				DeskApp - Bootstrap 4 Admin Template By
 				<a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
-			</div>
+			</div>-->
 		</div>
 	</div>
     <!-- welcome modal start -->
-	<div class="welcome-modal">
+	<!--<div class="welcome-modal">
 		<button class="welcome-modal-close">
 			<i class="bi bi-x-lg"></i>
 		</button>
@@ -641,7 +558,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</div>
 	<button class="welcome-modal-btn">
 		<i class="fa fa-download"></i> Download
-	</button>
+	</button>-->
 	<!-- welcome modal end -->
 	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>

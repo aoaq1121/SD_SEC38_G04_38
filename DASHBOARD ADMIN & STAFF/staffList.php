@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 		<!-- Basic Page Info -->
 		<meta charset="utf-8" />
 		<title>MSN - Administrator Dashboard</title>
@@ -89,6 +88,23 @@
 		</script>
 		<!-- End Google Tag Manager -->
 	</head>
+	<style>
+        table {
+            border-collapse: collapse;
+            width: 98%;
+			height: 98%;
+            margin: 10px auto;
+			
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 	<body>
 		<div class="header">
 			<div class="header-left">
@@ -382,218 +398,97 @@
 				</div>
 			</div>
 		</div>
-		<!--sidebar start-->
+
 		<?php include 'leftsidebar.php';?>
-		<!--sidebar end-->
-        <div class="mobile-menu-overlay"></div>
+		<!--side bar end-->
 
-	<div class="main-container">
-		<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-							<div class="title">
-								<h4>Contact</h4>
-							</div>
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item">
-										<a href="index.php">Home</a>
-									</li>
-									<li class="breadcrumb-item active" aria-current="page">
-										About Settings
-									</li>
-								</ol>
-							</nav>
-						</div>
+		<div class="mobile-menu-overlay"></div>
+
+		<div class="main-container">
+			<div class="xs-pd-20-10 pd-ltr-20">
+				<div class="title pb-20">
+					<h2 class="h3 mb-0">MSN Staff List</h2>
+				</div>
+
+				<div class="card-box pb-10">
+					<div class="h5 pd-20 mb-0">Staff List</div>
+					
+						<table>
+							<tr>
+								<th>Username</th>
+								<th>Full Name</th>
+								<th>Email</th>
+								<th>Phone Number</th>
+								<th>Date of Birth</th>
+								<th>Gender</th>
+								<th>Address</th>
+								<th>Postal Code</th>
+								<th>State</th>
+								<th>Country</th>
+								<th>Bank</th>
+								<th>Actions</th>
+							</tr>
+							<?php
+							// Connect to the database
+							$con = mysqli_connect("localhost", "root", "root", "msnbooking");
+
+							// Check connection
+							if (mysqli_connect_errno()) {
+								echo "Failed to connect to MySQL: " . mysqli_connect_error();
+							}
+
+							// Fetch staff data
+							$query = "SELECT * FROM staff";
+							$result = mysqli_query($con, $query);
+							while ($row = mysqli_fetch_assoc($result)) {
+								echo "<tr>";
+								echo "<td>" . $row['username'] . "</td>";
+								echo "<td>" . $row['fname'] . "</td>";
+								echo "<td>" . $row['email'] . "</td>";
+								echo "<td>" , "+60". $row['phoneNumber'] . "</td>";
+								echo "<td>" . $row['dob'] . "</td>";
+								echo "<td>" . $row['gender'] . "</td>";
+								echo "<td>" . $row['address'] . "</td>";
+								echo "<td>" . $row['postalcode']  . "</td>";
+								echo "<td>" . $row['state']  . "</td>";
+								echo "<td>" . $row['country']  . "</td>";
+								echo "<td>" . $row['bank']."</td>";
+								echo "<td>";
+								echo "<div class='table-actions'>";
+								echo "<a href='editStaff.php?id=" . $row['username'] . "' data-color='#265ed7'><i class='icon-copy dw dw-edit2 edit-link'></i></a>";
+								echo "<a href='deleteStaff.php?id=" . $row['username'] . "' data-color='#e95959' onclick='return confirm(\"Are you sure you want to delete this staff member?\");'><i class='icon-copy dw dw-delete-3 delete-link'></i></a>";
+								echo "</div>";
+								echo "</td>";
+								echo "</tr>";
+							}
+							?>
+						</table>
 					</div>
 				</div>
 
-                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30">
-						<div class="card-box height-100-p overflow-hidden">
-							<div class="profile-tab height-100-p">
-								<div class="tab height-100-p">
-									<ul class="nav nav-tabs customtab" role="tablist">
-										<!--<li class="nav-item">
-												<a
-													class="nav-link active"
-													data-toggle="tab"
-													href="timeline"
-													role="tab"
-													>Timeline</a
-												>
-											</li>
-											<li class="nav-item">
-												<a
-													class="nav-link"
-													data-toggle="tab"
-													href="#tasks"
-													role="tab"
-													>Tasks</a
-												>
-											</li>-->
-											<?php
-// Include your database connection code here
-include("dbconnect.php");
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $newHistory = $_POST['history'];
-    $newVisi = $_POST['visi'];
-    $newMisi = $_POST['misi'];
-    
-
-    // Update the contact information in the database
-    $updateQuery = "UPDATE editabout SET history='$newHistory', visi='$newVisi', misi='$newMisi' WHERE id=1"; // Change '1' to the ID of your contact
-    //$stmt = $mysqli->prepare($updateQuery);
-    //$stmt->bind_param("sss", $newOffice, $newMobile, $newName, $newEmail);
-	$result = mysqli_query($conn,$updateQuery);
-
-    if ($result) {
-        echo "
-		<script>
-		alert('About us content updated successfully.')
-		</script>
-		";
-    } else {
-        echo "Error updating about us content";
-    }
-}
-?>
-										<li class="nav-item">
-											<a class="nav-link active" data-toggle="tab" href="#setting" role="tab">Contact Setting</a>
-										</li>
-									</ul>
-									<div class="tab-content">
-                                    <div class="tab-pane fade show active" id="setting" role="tabpanel">
-											<div class="profile-setting">
-                                            <form action="" method="POST">
-													<ul class="profile-edit-list row">
-														<li class="weight-500 col-md-6">
-															<h4 class="text-blue h5 mb-20">
-																Edit About Content
-															</h4>
-                                                            <div class="form-group">
-                                                            <label for="history">History</label>
-                                                            <input class="form-control form-control-lg" type="text" name="history" value="<?php echo $about['history']; ?>"><br>
-                                                            </div>
-                                                            <div class="form-group">
-                                                            <label for="visi">Visi</label>
-                                                            <input class="form-control form-control-lg" type="text" name="visi" value="<?php echo $about['visi']; ?>"><br>
-                                                            </div>
-                                                            <div class="form-group">
-                                                            <label for="misi">Misi</label>
-                                                            <input class="form-control form-control-lg" type="text" name="misi" value="<?php echo $about['misi']; ?>"><br>
-                                                            </div>
-
-        
-                                                            <div class="form-group mb-0">
-                                                            <input class="btn btn-primary" type="submit" name="submit" value="Update About">
-                                                            </div>
-                                                        </li>
-													</ul>
-												</form>
-											</div>
-										</div>
-										<!-- Setting Tab End -->
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
-			<!--<div class="footer-wrap pd-20 mb-20 card-box">
-				DeskApp - Bootstrap 4 Admin Template By
-				<a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
-			</div>-->
-		</div>
-	</div>
-    <!-- welcome modal start -->
-	<!--<div class="welcome-modal">
-		<button class="welcome-modal-close">
-			<i class="bi bi-x-lg"></i>
-		</button>
-		<iframe class="w-100 border-0" src="https://embed.lottiefiles.com/animation/31548"></iframe>
-		<div class="text-center">
-			<h3 class="h5 weight-500 text-center mb-2">
-				Open source
-				<span role="img" aria-label="gratitude">❤️</span>
-			</h3>
-			<div class="pb-2">
-				<a class="github-button" href="https://github.com/dropways/deskapp" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star dropways/deskapp dashboard on GitHub">Star</a>
-				<a class="github-button" href="https://github.com/dropways/deskapp/fork" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork dropways/deskapp dashboard on GitHub">Fork</a>
 			</div>
 		</div>
-		<div class="text-center mb-1">
-			<div>
-				<a href="https://github.com/dropways/deskapp" target="_blank" class="btn btn-light btn-block btn-sm">
-					<span class="text-danger weight-600">STAR US</span>
-					<span class="weight-600">ON GITHUB</span>
-					<i class="fa fa-github"></i>
-				</a>
-			</div>
-			<script async defer="defer" src="https://buttons.github.io/buttons.js"></script>
-		</div>
-		<a href="https://github.com/dropways/deskapp" target="_blank" class="btn btn-success btn-sm mb-0 mb-md-3 w-100">
-			DOWNLOAD
-			<i class="fa fa-download"></i>
-		</a>
-		<p class="font-14 text-center mb-1 d-none d-md-block">
-			Available in the following technologies:
-		</p>
-		<div class="d-none d-md-flex justify-content-center h1 mb-0 text-danger">
-			<i class="fa fa-html5"></i>
-		</div>
-	</div>
-	<button class="welcome-modal-btn">
-		<i class="fa fa-download"></i> Download
-	</button>-->
-	<!-- welcome modal end -->
-	<!-- js -->
-	<script src="vendors/scripts/core.js"></script>
-	<script src="vendors/scripts/script.min.js"></script>
-	<script src="vendors/scripts/process.js"></script>
-	<script src="vendors/scripts/layout-settings.js"></script>
-	<script src="src/plugins/cropperjs/dist/cropper.js"></script>
-	<script>
-		window.addEventListener("DOMContentLoaded", function() {
-			var image = document.getElementById("image");
-			var cropBoxData;
-			var canvasData;
-			var cropper;
-
-			$("#modal")
-				.on("shown.bs.modal", function() {
-					cropper = new Cropper(image, {
-						autoCropArea: 0.5,
-						dragMode: "move",
-						aspectRatio: 3 / 3,
-						restore: false,
-						guides: false,
-						center: false,
-						highlight: false,
-						cropBoxMovable: false,
-						cropBoxResizable: false,
-						toggleDragModeOnDblclick: false,
-						ready: function() {
-							cropper.setCropBoxData(cropBoxData).setCanvasData(canvasData);
-						},
-					});
-				})
-				.on("hidden.bs.modal", function() {
-					cropBoxData = cropper.getCropBoxData();
-					canvasData = cropper.getCanvasData();
-					cropper.destroy();
-				});
-		});
-	</script>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-                                           
-                                                            
-    
-        
-</body>
+		
+		<!-- js -->
+		<script src="vendors/scripts/core.js"></script>
+		<script src="vendors/scripts/script.min.js"></script>
+		<script src="vendors/scripts/process.js"></script>
+		<script src="vendors/scripts/layout-settings.js"></script>
+		<script src="src/plugins/apexcharts/apexcharts.min.js"></script>
+		<script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+		<script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+		<script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+		<script src="vendors/scripts/dashboard3.js"></script>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
+				height="0"
+				width="0"
+				style="display: none; visibility: hidden"
+			></iframe
+		></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+	</body>
 </html>

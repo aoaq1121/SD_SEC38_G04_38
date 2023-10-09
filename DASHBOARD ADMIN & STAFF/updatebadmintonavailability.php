@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,7 +87,7 @@
 			})(window, document, "script", "dataLayer", "GTM-NXZMQSS");
 		</script>
 		<!-- End Google Tag Manager -->
-	</head>
+</head>
 	<body>
 		<div class="header">
 			<div class="header-left">
@@ -394,7 +393,7 @@
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 							<div class="title">
-								<h4>Contact</h4>
+								<h4>Available Badminton Slots</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
@@ -402,7 +401,7 @@
 										<a href="index.php">Home</a>
 									</li>
 									<li class="breadcrumb-item active" aria-current="page">
-										About Settings
+										Badminton Availability Settings
 									</li>
 								</ol>
 							</nav>
@@ -410,105 +409,95 @@
 					</div>
 				</div>
 
-                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30">
-						<div class="card-box height-100-p overflow-hidden">
-							<div class="profile-tab height-100-p">
-								<div class="tab height-100-p">
-									<ul class="nav nav-tabs customtab" role="tablist">
-										<!--<li class="nav-item">
-												<a
-													class="nav-link active"
-													data-toggle="tab"
-													href="timeline"
-													role="tab"
-													>Timeline</a
-												>
-											</li>
-											<li class="nav-item">
-												<a
-													class="nav-link"
-													data-toggle="tab"
-													href="#tasks"
-													role="tab"
-													>Tasks</a
-												>
-											</li>-->
-											<?php
-// Include your database connection code here
-include("dbconnect.php");
+                <div class="card-box pb-10">
+					<div class="h5 pd-20 mb-0">Badminton Time Option</div>
+					
+						<table class="data-table table nowrap">
+                        <thead>
+							<tr>
+								<th>Time Id</th>
+								<th>Time Value</th>
+								<th>Actions</th>
+							</tr>
+                        </thead>
+                        <tbody>
+							<?php
+							// Connect to the database
+							$con = mysqli_connect("localhost", "root", "root", "msnbooking");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $newHistory = $_POST['history'];
-    $newVisi = $_POST['visi'];
-    $newMisi = $_POST['misi'];
-    
+							// Check connection
+							if (mysqli_connect_errno()) {
+								echo "Failed to connect to MySQL: " . mysqli_connect_error();
+							}
 
-    // Update the contact information in the database
-    $updateQuery = "UPDATE editabout SET history='$newHistory', visi='$newVisi', misi='$newMisi' WHERE id=1"; // Change '1' to the ID of your contact
-    //$stmt = $mysqli->prepare($updateQuery);
-    //$stmt->bind_param("sss", $newOffice, $newMobile, $newName, $newEmail);
-	$result = mysqli_query($conn,$updateQuery);
-
-    if ($result) {
-        echo "
-		<script>
-		alert('About us content updated successfully.')
-		</script>
-		";
-    } else {
-        echo "Error updating about us content";
-    }
-}
-?>
-										<li class="nav-item">
-											<a class="nav-link active" data-toggle="tab" href="#setting" role="tab">Contact Setting</a>
-										</li>
-									</ul>
-									<div class="tab-content">
-                                    <div class="tab-pane fade show active" id="setting" role="tabpanel">
-											<div class="profile-setting">
-                                            <form action="" method="POST">
-													<ul class="profile-edit-list row">
-														<li class="weight-500 col-md-6">
-															<h4 class="text-blue h5 mb-20">
-																Edit About Content
-															</h4>
-                                                            <div class="form-group">
-                                                            <label for="history">History</label>
-                                                            <input class="form-control form-control-lg" type="text" name="history" value="<?php echo $about['history']; ?>"><br>
-                                                            </div>
-                                                            <div class="form-group">
-                                                            <label for="visi">Visi</label>
-                                                            <input class="form-control form-control-lg" type="text" name="visi" value="<?php echo $about['visi']; ?>"><br>
-                                                            </div>
-                                                            <div class="form-group">
-                                                            <label for="misi">Misi</label>
-                                                            <input class="form-control form-control-lg" type="text" name="misi" value="<?php echo $about['misi']; ?>"><br>
-                                                            </div>
-
-        
-                                                            <div class="form-group mb-0">
-                                                            <input class="btn btn-primary" type="submit" name="submit" value="Update About">
-                                                            </div>
-                                                        </li>
-													</ul>
-												</form>
-											</div>
-										</div>
-										<!-- Setting Tab End -->
-									</div>
-								</div>
-							</div>
-						</div>
+							// Fetch staff data
+							$query = "SELECT * FROM `badmintontimeoption` ORDER BY `badmintontimeoption`.`timeid` ASC";
+							$result = mysqli_query($con, $query);
+							while ($row = mysqli_fetch_assoc($result)) {
+								echo "<tr>";
+								echo "<td>" . $row['timeid'] . "</td>";
+								echo "<td>" . $row['timevalue'] . "</td>";
+								
+								echo "<td>";
+								echo "<div class='table-actions'>";
+								//echo "<a href='editbadmintonoption.php?id=" . $row['timeid'] . "' data-color='#265ed7'><i class='icon-copy dw dw-edit2 edit-link'></i></a>";
+								echo "<a href='deletebadmintonoption.php?id=" . $row['timeid'] . "&type=time'' data-color='#e95959' onclick='return confirm(\"Are you sure you want to delete this time option?\");'><i class='icon-copy dw dw-delete-3 delete-link'></i></a>";
+								echo "</div>";
+								echo "</td>";
+								echo "</tr>";
+							}
+							?>
+                            </tbody>
+						</table>
 					</div>
 				</div>
+                <br>
+                <div class="card-box pb-10">
+					<div class="h5 pd-20 mb-0">Badminton Duration Option</div>
+					
+						<table class="data-table table nowrap">
+                        <thead>
+							<tr>
+								<th>Duration Id</th>
+								<th>Duration Value</th>
+								<th>Actions</th>
+							</tr>
+                        </thead>
+                        <tbody>
+							<?php
+							// Connect to the database
+							$con = mysqli_connect("localhost", "root", "root", "msnbooking");
+
+							// Check connection
+							if (mysqli_connect_errno()) {
+								echo "Failed to connect to MySQL: " . mysqli_connect_error();
+							}
+
+							// Fetch staff data
+							$sqlquery = "SELECT * FROM badmintondurationoption ORDER BY `badmintondurationoption`.`durationid` ASC";
+							$result = mysqli_query($con, $sqlquery);
+							while ($row = mysqli_fetch_assoc($result)) {
+								echo "<tr>";
+								echo "<td>" . $row['durationid'] . "</td>";
+								echo "<td>" . $row['durationvalue'] . "</td>";
+								
+								echo "<td>";
+								echo "<div class='table-actions'>";
+								//echo "<a href='editbadmintonoption.php?id=" . $row['durationid'] . "' data-color='#265ed7'><i class='icon-copy dw dw-edit2 edit-link'></i></a>";
+								echo "<a href='deletebadmintonoption.php?id=" . $row['durationid'] . "&type=duration'' data-color='#e95959' onclick='return confirm(\"Are you sure you want to delete this duration option?\");'><i class='icon-copy dw dw-delete-3 delete-link'></i></a>";
+								echo "</div>";
+								echo "</td>";
+								echo "</tr>";
+							}
+							?>
+                            </tbody>
+						</table>
+					</div>
+				</div>
+
             </div>
-			<!--<div class="footer-wrap pd-20 mb-20 card-box">
-				DeskApp - Bootstrap 4 Admin Template By
-				<a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
-			</div>-->
-		</div>
-	</div>
+        </div>
+    </div>    
     <!-- welcome modal start -->
 	<!--<div class="welcome-modal">
 		<button class="welcome-modal-close">
@@ -591,9 +580,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
-                                           
-                                                            
-    
-        
 </body>
+
 </html>

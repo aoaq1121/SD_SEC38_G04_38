@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Authentication successful
             $_SESSION['username'] = $username;
             $_SESSION['type'] = $type;
-            header("Location: admin_dashboard.php");
+            header("Location: testdashboard.php");
             exit();
         }
     
@@ -64,11 +64,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['username'] = $username;
             $_SESSION['type'] = $type;
 
-            header("Location: staff_dashboard.php");
+            header("Location: testdashboard.php");
             exit();
         }
         else{
-            $error_message = "Incorrect username or password";
+            echo"
+            <script>
+             alert( 'Incorrect username or password');
+             <script>
+             ";
         }
     }
     else{
@@ -214,7 +218,7 @@ $conn->close();
         </div>
         <div class="login-menu">
             <ul>
-                <li><a href="register.php">Register</a></li>
+                <!--<li><a href="register.php">Register</a></li>-->
             </ul>
         </div>
     </div>
@@ -265,18 +269,19 @@ $conn->close();
                                 <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
                             </div>
                         </div>
+                        
                         <div class="row pb-30">
                             <div class="col-6">
+                                <!--<div class="forgot-password">-->
+                                <a href="forgot-password.php">Forgot Password ?</a>
+                                <!--</div>-->
+                            </div>
+                            <!--<div class="col-6">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1" />
                                     <label class="custom-control-label">Remember</label>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="forgot-password">
-                                    <a href="forgot-password.php">Forgot Password</a>
-                                </div>
-                            </div>
+                            </div>-->
                         </div>
                         <!-- Hidden input field to store the selected role -->
                         <input type="hidden" name="options" id="options" value="" />

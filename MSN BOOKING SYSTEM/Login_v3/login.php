@@ -70,7 +70,8 @@ if (isset($_POST['email'])) {
 			<div class="wrap-login100">
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"  class="login100-form validate-form">
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+						<!--<i class="zmdi zmdi-landscape"></i>-->
+						<img style="height:90px;weight:90px"src="images/logo.png">
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
@@ -95,20 +96,21 @@ if (isset($_POST['email'])) {
 					</div>-->
 
 					<div class="text-right">
-						<a class="txt1" href="forgotpassword.php">
+						<a  href="forgotpassword.php">
 							Forgot Password?
 						</a>
 					</div>
 
 					<div class="container-login100-form-btn p-t-30">
 						<button type="submit" name="login" class="login100-form-btn">
-							LogIn
+							Log In
 						</button>
 					</div>
 
 					<div class="text-center p-t-90">
 						<label for="ckb1" style="font-size: 13px;"> Don't Have An Account?
-						<a class="txt1" href="signup.php">
+						<!--<a class="txt1" href="signup.php">-->
+						<a  href="signup.php">
 							Sign Up Now
 						</a>
 						</label>

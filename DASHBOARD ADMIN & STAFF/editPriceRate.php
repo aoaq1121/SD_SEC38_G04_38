@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -382,9 +381,7 @@
 				</div>
 			</div>
 		</div>
-		<!--sidebar start-->
 		<?php include 'leftsidebar.php';?>
-		<!--sidebar end-->
         <div class="mobile-menu-overlay"></div>
 
 	<div class="main-container">
@@ -394,15 +391,15 @@
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 							<div class="title">
-								<h4>Contact</h4>
+								<h4>Price Rate</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item">
-										<a href="index.php">Home</a>
+										<a href="admin_dasboard.php">Home</a>
 									</li>
 									<li class="breadcrumb-item active" aria-current="page">
-										About Settings
+										Price Rate Setting
 									</li>
 								</ol>
 							</nav>
@@ -415,53 +412,37 @@
 							<div class="profile-tab height-100-p">
 								<div class="tab height-100-p">
 									<ul class="nav nav-tabs customtab" role="tablist">
-										<!--<li class="nav-item">
-												<a
-													class="nav-link active"
-													data-toggle="tab"
-													href="timeline"
-													role="tab"
-													>Timeline</a
-												>
-											</li>
-											<li class="nav-item">
-												<a
-													class="nav-link"
-													data-toggle="tab"
-													href="#tasks"
-													role="tab"
-													>Tasks</a
-												>
-											</li>-->
+									
 											<?php
-// Include your database connection code here
-include("dbconnect.php");
+                                                // Include your database connection code here
+                                                include("dbconnect.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $newHistory = $_POST['history'];
-    $newVisi = $_POST['visi'];
-    $newMisi = $_POST['misi'];
-    
+                                                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                                    $newWeekDayRate = $_POST['weekdayrate'];
+                                                    $newWeekEndRate = $_POST['weekendrate'];
+                                                   
+                                                    
 
-    // Update the contact information in the database
-    $updateQuery = "UPDATE editabout SET history='$newHistory', visi='$newVisi', misi='$newMisi' WHERE id=1"; // Change '1' to the ID of your contact
-    //$stmt = $mysqli->prepare($updateQuery);
-    //$stmt->bind_param("sss", $newOffice, $newMobile, $newName, $newEmail);
-	$result = mysqli_query($conn,$updateQuery);
+                                                    // Update the contact information in the database
+                                                    $updateQuery = "UPDATE editpricerate SET weekdayrate='$newWeekDayRate', weekendrate='$newWeekEndRate' WHERE id=1"; // Change '1' to the ID of your contact
+                                                    //$stmt = $mysqli->prepare($updateQuery);
+                                                    //$stmt->bind_param("sss", $newOffice, $newMobile, $newName, $newEmail);
+                                                    $result = mysqli_query($conn,$updateQuery);
 
-    if ($result) {
-        echo "
-		<script>
-		alert('About us content updated successfully.')
-		</script>
-		";
-    } else {
-        echo "Error updating about us content";
-    }
-}
-?>
+                                                    if ($result) {
+                                                        echo "
+                                                        <script>
+                                                        alert('Price Rate updated successfully.')
+                                                        </script>
+                                                        ";
+                                                    } else {
+                                                        echo "Error updating price rate";
+                                                    }
+                                                }
+                                            ?>
+
 										<li class="nav-item">
-											<a class="nav-link active" data-toggle="tab" href="#setting" role="tab">Contact Setting</a>
+											<a class="nav-link active" data-toggle="tab" href="#setting" role="tab">Price Rate Setting</a>
 										</li>
 									</ul>
 									<div class="tab-content">
@@ -471,24 +452,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 													<ul class="profile-edit-list row">
 														<li class="weight-500 col-md-6">
 															<h4 class="text-blue h5 mb-20">
-																Edit About Content
+																Edit Price Rate Content
 															</h4>
                                                             <div class="form-group">
-                                                            <label for="history">History</label>
-                                                            <input class="form-control form-control-lg" type="text" name="history" value="<?php echo $about['history']; ?>"><br>
+                                                            <label for="weekdayrate">Week Day Price Rate</label>
+                                                            <input class="form-control form-control-lg" type="number"  step="0.01" min="0" name="weekdayrate" value="<?php echo $pricerate['weekdayrate']; ?>"><br>
                                                             </div>
-                                                            <div class="form-group">
-                                                            <label for="visi">Visi</label>
-                                                            <input class="form-control form-control-lg" type="text" name="visi" value="<?php echo $about['visi']; ?>"><br>
+															<div class="form-group">
+                                                            <label for="weekendrate">Week End Price Rate</label>
+                                                            <input class="form-control form-control-lg" type="number" step="0.01" min="0" name="weekendrate" value="<?php echo $pricerate['weekendrate']; ?>"><br>
                                                             </div>
-                                                            <div class="form-group">
-                                                            <label for="misi">Misi</label>
-                                                            <input class="form-control form-control-lg" type="text" name="misi" value="<?php echo $about['misi']; ?>"><br>
-                                                            </div>
+                                                            
 
         
                                                             <div class="form-group mb-0">
-                                                            <input class="btn btn-primary" type="submit" name="submit" value="Update About">
+                                                            <input class="btn btn-primary" type="submit" name="submit" value="Update Price Rate">
                                                             </div>
                                                         </li>
 													</ul>
@@ -503,53 +481,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</div>
 				</div>
             </div>
-			<!--<div class="footer-wrap pd-20 mb-20 card-box">
-				DeskApp - Bootstrap 4 Admin Template By
-				<a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
-			</div>-->
+			
 		</div>
 	</div>
-    <!-- welcome modal start -->
-	<!--<div class="welcome-modal">
-		<button class="welcome-modal-close">
-			<i class="bi bi-x-lg"></i>
-		</button>
-		<iframe class="w-100 border-0" src="https://embed.lottiefiles.com/animation/31548"></iframe>
-		<div class="text-center">
-			<h3 class="h5 weight-500 text-center mb-2">
-				Open source
-				<span role="img" aria-label="gratitude">❤️</span>
-			</h3>
-			<div class="pb-2">
-				<a class="github-button" href="https://github.com/dropways/deskapp" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star dropways/deskapp dashboard on GitHub">Star</a>
-				<a class="github-button" href="https://github.com/dropways/deskapp/fork" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork dropways/deskapp dashboard on GitHub">Fork</a>
-			</div>
-		</div>
-		<div class="text-center mb-1">
-			<div>
-				<a href="https://github.com/dropways/deskapp" target="_blank" class="btn btn-light btn-block btn-sm">
-					<span class="text-danger weight-600">STAR US</span>
-					<span class="weight-600">ON GITHUB</span>
-					<i class="fa fa-github"></i>
-				</a>
-			</div>
-			<script async defer="defer" src="https://buttons.github.io/buttons.js"></script>
-		</div>
-		<a href="https://github.com/dropways/deskapp" target="_blank" class="btn btn-success btn-sm mb-0 mb-md-3 w-100">
-			DOWNLOAD
-			<i class="fa fa-download"></i>
-		</a>
-		<p class="font-14 text-center mb-1 d-none d-md-block">
-			Available in the following technologies:
-		</p>
-		<div class="d-none d-md-flex justify-content-center h1 mb-0 text-danger">
-			<i class="fa fa-html5"></i>
-		</div>
-	</div>
-	<button class="welcome-modal-btn">
-		<i class="fa fa-download"></i> Download
-	</button>-->
-	<!-- welcome modal end -->
+   
 	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>

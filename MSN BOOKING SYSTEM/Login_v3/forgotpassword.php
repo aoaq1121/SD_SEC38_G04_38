@@ -35,7 +35,8 @@
 			<div class="wrap-login100">
 				<form action="" method="post" class="login100-form validate-form">
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+						<img style="height:90px;weight:90px"src="images/logo.png">
+						<!--<i class="zmdi zmdi-landscape"></i>-->
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
@@ -53,14 +54,14 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter new password">
-						<input class="input100" type="password" name="password" id="password" placeholder="New Password" minlength="6" maxlength="15" required="">
+						<input class="input100" type="password" name="password" id="password" placeholder="New Password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="[_%+\-@#](?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Confirm password">
-						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" minlength="6" maxlength="15" required="">
+					<!--<div class="wrap-input100 validate-input" data-validate="Confirm password">
+						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="[._%+\-@#](?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
+					</div>-->
 
 					<!--<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
@@ -77,7 +78,7 @@
 
 					<div class="text-center p-t-90">
 						<label for="ckb1" style="font-size: 13px;">
-						<a class="txt1" href="login.php">
+						<a  href="login.php">
 							Back to LogIn
 						</a>
 						</label>

@@ -35,7 +35,8 @@
 			<div class="wrap-login100">
 				<form action="sendEmail.php" method="post" class="login100-form validate-form">
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+						<!--<i class="zmdi zmdi-landscape"></i>-->
+						<img style="height:90px;weight:90px"src="images/logo.png">
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
@@ -43,7 +44,7 @@
 					</span>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="name" id="name" placeholder="Username" required="">
+						<input class="input100" type="text" name="name" id="name" placeholder="Username"  pattern="[A-Za-z0-9]{4}" title="At least 4 or more characters with alphabets/numbers"required="">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
@@ -53,15 +54,22 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" id="password" placeholder="Password" minlength="6" maxlength="15" required="">
+						<input class="input100" type="password" name="password" id="password" pattern="[_%+\-@#](?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" placeholder="Password" minlength="6" maxlength="15" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" required="">
+						
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+						
+					
 					</div>
+					
+						
+						<!--<input  type="checkbox" onclick="myFunction()">Show Password-->
+					
+					
 
-					<div class="wrap-input100 validate-input" data-validate="Confirm password">
-						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" minlength="6" maxlength="15" required="">
+					<!--<div class="wrap-input100 validate-input" data-validate="Confirm password">
+						<input class="input100" type="password" name="cpassword" id="cpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" placeholder="Confirm Password" minlength="6" maxlength="15" title="At least 6 or more characters that must contain at least one number and one uppercase and lowercase letter." required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-
+					</div>-->
 					<!--<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 						<label class="label-checkbox100" for="ckb1">
@@ -77,7 +85,7 @@
 
 					<div class="text-center p-t-90">
 						<label for="ckb1" style="font-size: 13px;"> Already Have An Account?
-						<a class="txt1" href="login.php">
+						<a  href="login.php">
 							Sign In Now
 						</a>
 						</label>

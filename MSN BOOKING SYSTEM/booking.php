@@ -86,7 +86,7 @@
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="about.php" class="nav-item nav-link">About</a>
                     <a href="service.php" class="nav-item nav-link">Services</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="contact.php" class="nav-item nav-link">Contact</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Booking</a>
                         <div class="dropdown-menu m-0">
@@ -175,7 +175,7 @@
 
 
     <!-- Process Start -->
-    <div class="container-xxl py-5">
+    <!--<div class="container-xxl py-5">
         <div class="container">
             <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-grey text-center text-primary px-3">Process</h6>
@@ -217,8 +217,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- Process Start -->
+
 
 
     <!-- Booking Start -->
@@ -226,18 +227,19 @@
         <div class="container">
             <div class="booking p-5">
                 <div class="row g-5 align-items-center">
-                    <div class="col-md-6 text-white">
-                        <h6 class="text-white text-uppercase">Booking</h6>
-                        <h1 class="text-white mb-4">Online Booking</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <!--<div class="col-md-6 text-white">
+                        <h6 class="text-white text-uppercase">Online Booking</h6>
+                        <h1 class="text-white mb-4">Badminton Slot Availability</h1>-->
+                        <!--<p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
                         <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
-                    </div>
+                        <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>-->
+                    <!--</div>-->
                     <div class="col-md-6">
-                        <h1 class="text-white mb-4">Book A Tour</h1>
-                        <form>
+                        <h1 class="text-white mb-4">Badminton Slot Availability</h1>
+                        <h6 class="text-white text-uppercase">Book a Slot</h6>
+                        <form method="post" action="">
                             <div class="row g-3">
-                                <div class="col-md-6">
+                                <!--<div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name">
                                         <label for="name">Your Name</label>
@@ -248,14 +250,77 @@
                                         <input type="email" class="form-control bg-transparent" id="email" placeholder="Your Email">
                                         <label for="email">Your Email</label>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                </div>-->
+                                <div class="col-12">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
+                                    
+                                    <input type="date" class="form-control bg-transparent datepicker-input" id="date" name="date" value="<?php echo $searchDate; ?>"  placeholder="Date" required />
+                                    <label for="date">Select a date:</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                    
+                                    <!--<input type="time" class="form-control bg-transparent timepicker-input" id="time" value="<?php //echo $searchTime; ?>" placeholder="Time"  required  />-->
+                                    
+                                    <select class="form-control bg-transparent timepicker-input" name="time" id="time" required>
+                                    <option value="">Time</option>
+                                    <?php
+                                    include("Login_v3/db.php");
+                                    $timesql = "SELECT * FROM badmintontimeoption "; // You may need to change '1' to the ID of your contact
+                                    $timequery = mysqli_query($conn,$timesql);
+                                    
+                                        while ($row = mysqli_fetch_assoc($timequery)) {
+                                            echo '<option value="' . $row['timeid'] . '">' . $row['timevalue'] . '</option>';
+                                        }
+                                    ?>
+                                    <!--<option value="">Time</option>
+                                    <option value="07:00:00">07:00 AM</option>
+                                    <option value="08:00:00">08:00 AM</option>
+                                    <option value="09:00:00">09:00 AM</option>
+                                    <option value="10:00:00">10:00 AM</option>
+                                    <option value="11:00:00">11:00 AM</option>
+                                    <option value="12:00:00">12:00 PM</option>
+                                    <option value="13:00:00">01:00 PM</option>
+                                    <option value="14:00:00">02:00 PM</option>
+                                    <option value="15:00:00">03:00 PM</option>
+                                    <option value="16:00:00">04:00 PM</option>
+                                    <option value="17:00:00">05:00 PM</option>
+                                    <option value="18:00:00">06:00 PM</option>
+                                    <option value="19:00:00">07:00 PM</option>
+                                    <option value="20:00:00">08:00 PM</option>
+                                    <option value="21:00:00">09:00 PM</option>
+                                    <option value="22:00:00">10:00 PM</option>-->
+                                    
+                                    </select>
+                                    <label for="time">Select a time:</label> 
+                                    </div>
+                                </div>
+                                                         <div class="col-md-6">
+                                    <div class="form-floating" id="date3" data-target-input="nearest">
+                                    
+                                    <!--<input type="number" class="form-control bg-transparent timepicker-input"  id="duration"  step="0.5" min="0.5" value="<?php //echo $searchDurationHours; ?>"  placeholder="Duration"  required  />-->
+                                    <select class="form-control bg-transparent timepicker-input" name="duration" id="duration"  required>
+                                    <option value="">Duration</option>
+                                    <!--<option value="1">1 hour</option>
+                                    <option value="2">2 hour</option>
+                                    <option value="3">3 hour</option>
+                                    <option value="4">4 hour</option>-->
+                                    <?php
+                                        include("Login_v3/db.php");
+                                        $durationsql = "SELECT * FROM badmintondurationoption "; // You may need to change '1' to the ID of your contact
+                                        $durationquery = mysqli_query($conn,$durationsql);
+                                        while ($row = mysqli_fetch_assoc($durationquery)) {
+                                            echo '<option value="' . $row['durationid'] . '">' . $row['durationvalue'] . '</option>';
+                                        }
+                                    ?>
+                                    <!--<option value="1.5">1 hour 30 minutes</option>-->
+                                    
+                                    </select><br>
+                                    <label for="duration">Select a duration (in hour):</label>
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-select bg-transparent" id="select1">
                                             <option value="1">Destination 1</option>
@@ -270,98 +335,272 @@
                                         <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
                                         <label for="message">Special Request</label>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
+                                </div>-->
+                                <div>
+                                    <!--<button class="btn btn-outline-light w-100 py-3" type="submit" value="Search">-->
+                                    
+                                    <button class="btn btn-outline-light w-100 py-3" type="submit" name="searchButton">Search</button>
                                 </div>
                             </div>
+                            <!-- <div class="row g-3">
+                                
+                            </div> -->
                         </form>
                     </div>
+                    <div class="col-md-6">
+                                <?php
+                               include("Login_v3/db.php");
+                                
+                                // Initialize variables
+                                $searchDate = date('d-m-Y');
+                                $searchTime = '';
+                                $searchDurationHours = 1; // Default duration in hours
+                                $bookedCourtIdsString = ''; // Initialize an empty string
+
+
+                                // Check if the form has been submitted
+                                if(isset($_POST['searchButton'])){
+
+                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                        $searchDate = $_POST['date'];
+                                        $searchTime = $_POST['time'];
+                                        $searchDurationHours = $_POST['duration'];
+                                        // $endTime = $searchTime + $searchDurationHours;
+                                        // Calculate the end time in seconds
+                                        $endTimeSeconds = strtotime($searchTime) + ($searchDurationHours * 3600);
+                                        $endTime = date('H:i:s', $endTimeSeconds);
+
+                                        // $bookingID = mysqli_num_rows(mysqli_query($conn,"SELECT bsid FROM badmintonslots")) + 1;
+                                        $randomNumber = mt_rand(10000, 99999);
+
+                                // Get the current timestamp (Unix timestamp)
+                                $timestamp = time();
+
+                                // Concatenate the random number and timestamp to create a unique integer ID
+                                $bookingID = $randomNumber . $timestamp;
+
+                                // Convert the result to an integer if needed
+                                $bookingID = (int)$bookingID;
+
+                                // Display the booking ID
+                                // echo "Booking ID: " . $bookingID;
+                                    }
+
+                                // // Convert duration from hours to minutes
+                                $searchDurationMinutes = $searchDurationHours * 60;
+
+                                // // Query to retrieve available courts based on user input
+                                // $query = "SELECT bsid, COUNT(bsid) AS availablecount FROM badmintonslots
+                                //         WHERE date = $searchDate AND isbooked = 0
+                                //         AND starttime >= $searchTime AND TIMESTAMPADD(MINUTE, $searchDurationMinutes, starttime) <= endtime
+                                //         GROUP BY bsid
+                                //         HAVING availablecount >= 10";
+                                $query = "SELECT date FROM badmintonslots WHERE date = '$searchDate'";
+                                $result = mysqli_query($conn,$query);
+                                // echo $result;
+                                // echo $query;
+                                // echo '\n'.$searchTime+3;
+                                // Generate a random number between a range (e.g., 10000 and 99999)
+                                // echo mysqli_num_rows($checkCourt);
+                                
+                                // else{
+                                    if (mysqli_num_rows($result) == 0) {
+                                        echo "<h1 style='color: white;'>Available Badminton Courts for $searchDate, from $searchTime to $endTime</h2>";
+                                        $searchCourt = "SELECT courtid FROM court ";
+                                        $output = mysqli_query($conn, $searchCourt);
+                                
+                                        echo "<form method='post' action=''>";
+                                        while ($row = mysqli_fetch_assoc($output)) {
+                                            echo "<input type='radio' name='selectedCourt' value='{$row['courtid']}' id='court{$row['courtid']}' />";
+                                            echo "<label for='court{$row['courtid']}'>Court {$row['courtid']}</label><br>";
+                                            echo "<input type='hidden' name='searchDate' value='$searchDate'/>";
+                                            echo "<input type='hidden' name='searchTime' value='$searchTime'/>";
+                                            echo "<input type='hidden' name='endTime' value='$endTime'/>";
+                                            echo "<input type='hidden' name='bookingID' value='$bookingID'/>";
+                                            
+                                        }
+                                        
+                                        echo "<br><button class='btn btn-outline-light w-100 py-3' type='submit' name='bookCourt'>Book Court</button>";
+                                        echo "</form>";
+                                    } elseif (mysqli_num_rows($result) > 0) {
+                                        $searchCourt = "SELECT * FROM badmintonslots WHERE date = '$searchDate' AND '$searchTime' >= `starttime` AND '$searchTime' < `endtime` OR '$endTime' >= `starttime` AND '$endTime' < `endtime`";
+                                        $checkCourt = mysqli_query($conn,$searchCourt);
+                                        if (mysqli_num_rows($checkCourt) == 4) {
+                                            echo "<h1 style='color: white;'>No available courts for the selected date, time, and duration.</h2>";
+                                        }
+                                        else{
+                                            echo "<h1 style='color: white;'>Available Badminton Courts for $searchDate, from $searchTime to $endTime</h2>";
+                                        // $searchCourt = "SELECT courtid FROM court WHERE courtid NOT IN (SELECT bsid FROM badmintonslots WHERE date = '$searchDate' AND starttime = '$searchTime')";
+                                        
+    
+                                        $bookedCourts = [];
+                                        while ($bookedCourtRow = mysqli_fetch_assoc($checkCourt)) {
+                                            $bookedCourts[] = $bookedCourtRow['bsid'];
+                                        }
+    
+                                        $getCourt = mysqli_query($conn,"SELECT courtid FROM court");
+                                                                    
+                                        
+                                        echo "<form method='post' action=''>";
+                                        while ($getCourtRow = mysqli_fetch_assoc($getCourt)) {
+                                            $courtId = $getCourtRow['courtid'];
+                                            
+                                            // Check if the court is not booked (not in $bookedCourts array)
+                                            if (!in_array($courtId, $bookedCourts)) {
+                                                echo "<input type='radio' name='selectedCourt' value='$courtId' id='court$courtId' />";
+                                                echo "<label for='court$courtId'>Court $courtId</label><br>";
+                                            }
+                                        }
+                                        echo "<input type='hidden' name='searchDate' value='$searchDate'/>";
+                                        echo "<input type='hidden' name='searchTime' value='$searchTime'/>";
+                                        echo "<input type='hidden' name='endTime' value='$endTime'/>";
+                                        echo "<input type='hidden' name='bookingID' value='$bookingID'/>";
+                                        echo "<button class='btn btn-outline-light w-100 py-3' type='submit' name='bookCourt'>Book Court</button>";
+                                        echo "</form>";
+                                        }
+                                }
+                            // }
+
+                                                // $bookedCourt = mysqli_fetch_assoc($checkCourt);
+                                                // // echo $searchCourt;
+                                                // echo $bookedCourt['bsid'];
+                                                // while($getCourtRow == mysqli_fetch_assoc($getCourt)){
+                                                //     while($bookedCourtRow = $bookedCourt){
+                                                //         if($getCourtRow['courtid'] != $bookedCourtRow['bsid']){
+                                                //             echo "<input type='radio' name='selectedCourt' value='{$row['courtid']}' id='court{$row['courtid']}' />";
+                                                //             echo "<label for='court{$row['courtid']}'>Court {$row['courtid']}</label><br>";
+                                                //             echo "<input type='hidden' name='searchDate' value='$searchDate'/>";
+                                                //             echo "<input type='hidden' name='searchTime' value='$searchTime'/>";
+                                                //             echo "<input type='hidden' name='endTime' value='$endTime'/>";
+                                                //             echo "<input type='hidden' name='bookingID' value='$bookingID'/>";
+                                                //         }
+                                                //     }
+                                                // }
+                                                // echo "<button type='submit' name='bookCourt'>Book Court</button>";
+                                                // if(mysqli_num_rows($checkCourt) == 4){
+                                                //     echo "<h2>No available courts for the selected date, time, and duration.</h2>";
+                                                // }
+                                                
+                                                // echo $checkCourtRow['bsid'];                
+                                                // echo $searchCourt;
+                                                // $output = mysqli_query($conn, $searchCourt);
+                                                // while($getCourtRow = mysqli_fetch_assoc($getCourt)){
+                                                    
+                                        
+                                                // echo "<form method='post' action=''>";
+                                                // if ($availableCourt = mysqli_num_rows($getCourt)) {
+                                                //     while ($row = mysqli_fetch_assoc($getCourt)) {
+                                                //         if($row['courtid'] != $checkCourtRow['bsid']){
+                                                        // echo "<input type='radio' name='selectedCourt' value='{$row['courtid']}' id='court{$row['courtid']}' />";
+                                                        // echo "<label for='court{$row['courtid']}'>Court {$row['courtid']}</label><br>";
+                                                        // echo "<input type='hidden' name='searchDate' value='$searchDate'/>";
+                                                        // echo "<input type='hidden' name='searchTime' value='$searchTime'/>";
+                                                        // echo "<input type='hidden' name='endTime' value='$endTime'/>";
+                                                        // echo "<input type='hidden' name='bookingID' value='$bookingID'/>";
+                                                //         }
+                                                //     }
+                                                //     echo "<button type='submit' name='bookCourt'>Book Court</button>";
+                                                // } else {
+                                                //     echo "<h2>No available courts for the selected date, time, and duration.</h2>";
+                                                // }
+                                        
+                                    
+                                        // $stmt = mysqli_prepare($mysqli, $query);
+                                        // mysqli_stmt_bind_param($stmt, "ssi", $searchDate, $searchTime, $searchDurationMinutes);
+                                        // mysqli_stmt_execute($stmt);
+                                        // $result = mysqli_stmt_get_result($stmt);
+                                        // $result = mysqli_query($conn,$query);
+
+                                        // // Check if there are available courts
+                                        // if (mysqli_num_rows($result) > 0) {
+                                            // echo "<h2>Available Badminton Courts for $searchDate:</h2>";
+                                            // echo "<ul>";
+                                            // while ($row = mysqli_fetch_assoc($result)) {
+                                            //     echo "<li>Court {$row['bsid']}</li>";
+                                            // }
+                                            // echo "</ul>";
+                                        // } else {
+                                        //     echo "<h2>No available courts for the selected date, time, and duration.</h2>";
+                                        // }
+
+                                        // // Close the database connection
+                                        // mysqli_stmt_close($stmt);
+                                        // mysqli_close($mysqli);
+                                    }
+
+                                    if(isset($_POST['bookCourt'])){
+                                        $bookingID = $_POST['bookingID'];
+                                        $selectedCourt = $_POST['selectedCourt'];
+                                        $searchDate = $_POST['searchDate'];
+                                        $searchTime = $_POST['searchTime'];
+                                        $endTime = $_POST['endTime'];
+                                        // echo $bookingID;
+                                        // echo $selectedCourt;
+                                        $reserve = "INSERT INTO badmintonslots(bookingid,bsid,date,starttime,endtime,isbooked)VALUES('$bookingID','$selectedCourt','$searchDate','$searchTime','$endTime','1')";
+                                        // echo $reserve;
+                                        mysqli_query($conn,$reserve);
+                                 }
+                                ?> 
+                                </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Booking Start -->
+                             
+                        
+
+    <?php
+                        //error_reporting(E_ALL);
+                        //ini_set('display_errors', '1');
+                        
+                        //include("Login_v3/db.php");
+                        // Initialize variables
+                        //$searchDate = date('d-m-Y');
+                        //$searchTime = '';
+                        //$searchDurationHours = 1; // Default duration in hours
+                        //$searchButton = $_POST['$searchButton'];
+                        // Check if the form has been submitted
+                        //if(isset($_POST['searchButton'])){
+                          //  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            //    $searchDate = $_POST['date'];
+                              //  $searchTime = $_POST['time'];
+                                //$searchDurationHours = $_POST['duration'];
+                            //}
+    
+                            // Convert duration from hours to minutes
+                            //$searchDurationMinutes = $searchDurationHours * 60;
+    
+                            // Query to retrieve available courts based on user input
+                            //$query = "SELECT DISTINCT bsid FROM badmintonslots
+                              //      WHERE date = $searchDate AND isbooked = 0
+                                //    AND starttime >= $searchTime AND TIMESTAMPADD(MINUTE, $searchDurationMinutes, starttime) <= endtime";
+                            //$stmt = mysqli_prepare($mysqli, $query);
+                            //mysqli_stmt_bind_param($stmt, "ssi", $searchDate, $searchTime, $searchDurationMinutes);
+                            //mysqli_stmt_execute($stmt);
+                            //$result = mysqli_stmt_get_result($stmt);
+    
+                            // // Check if there are available courts
+                            //if (mysqli_num_rows($result) > 0) {
+                              //  echo "<h2>Available Badminton Courts for $searchDate:</h2>";
+                                //echo "<ul>";
+                                //while ($row = mysqli_fetch_assoc($result)) {
+                                  //  echo "<li>Court {$row['bsid']}</li>";
+                                //}
+                                //echo "</ul>";
+                            //} else {
+                              //  echo "<h2>No available courts for the selected date, time, and duration.</h2>";
+                            //}
+    
+                            // // Close the database connection
+                            //mysqli_stmt_close($stmt);
+                            //mysqli_close($mysqli);
+                        //}
+                    ?>
+    <!-- Booking End -->
         
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Company</h4>
-                    <a class="btn btn-link" href="about.php">About Us</a>
-                    <a class="btn btn-link" href="contact.php">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jalan 6/27a, Wangsa Maju, Kuala Lumpur</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+60 3-4142 00820</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>amzar@nsc.gov.my</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/badmintonHall.jpg" alt="Badminton Hall">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/swimmingPool.jpg" alt="Swimming Pool">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/sportsTrack.jpg" alt="Sports Track">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/soccerField.jpg" alt="Soccer Field">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/ksnSetiawangsa.jpg" alt="KSN Setiawangsa">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/bg-hero.jpg" alt="KSN Setiawangsa">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Receive news and promotion for our upcoming events</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="index.php">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include 'footer.php' ?>
     <!-- Footer End -->
 
 

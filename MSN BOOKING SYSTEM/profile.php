@@ -174,15 +174,102 @@
     </div>
     <!-- Navbar & Hero End -->
     <!--content start-->  
-    <style>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-grey text-center text-primary px-3">Profile</h6>
+                <h1 class="text-wheat mb-5">Profile Settings</h1>
+            </div>
+                <!--<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <iframe class="position-relative rounded w-100 h-100"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5972639959655!2d101.7482732743855!3d3.1999970967752387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc382d83d46cbd%3A0x2a9d48c2b3924c44!2sKompleks%20Sukan%20Setiawangsa!5e0!3m2!1sen!2smy!4v1693050802734!5m2!1sen!2smy" 
+                        frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
+                        tabindex="0"></iframe>
+                </div>-->
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <!--<div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">-->
+                <h5 style="color:darkgoldenrod;text-align:center">Edit Profile</h5>
+                
+                    <form style="text-align:center" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Username" readonly>
+                                    <label for="name" style="color:lightslategrey">Username</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email"  name="email" placeholder="Email" readonly>
+                                    <label for="email" style="color:lightslategrey">Email</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" >
+                                    <label for="fullname" style="color:lightslategrey">Full Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="gender" name="gender" placeholder="Gender">
+                                    <label for="gender" style="color:lightslategrey">Gender(Male/Female)</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                                    <label for="phoneNumber" style="color:lightslategrey">Mobile Phone (+60)</label>
+                                </div>
+                            </div>
+                            
+                            <!--<div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" >
+                                    <label for="fullname" style="color:lightslategrey">Full Name</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email"  name="email" placeholder="Email">
+                                    <label for="email" style="color:lightslategrey">Email</label>
+                                </div>
+                            </div>-->
+                            
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="Date of Birth">
+                                    <label for="dateOfBirth" style="color:lightslategrey">Date of Birth</label>
+                                </div>
+                            </div>
+                            <!--<div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
+                                    <label for="message" style="color:lightslategrey">Message</label>
+                                </div>
+                            </div>-->
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit" name="saveprofilebutton">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+        </div>  
+    </div>
+
+    <!--<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');*{padding: 0;margin: 0;font-family: 'Poppins', sans-serif}.container{display:flex;justify-content:center;align-items:center;}.card{width:350px;height:490px;border-radius:10px;overflow:hidden}.card .info{padding:15px;display:flex;justify-content:space-between;border-bottom:1px solid #e1dede;background-color:#e5e5e5;color:black}.card .info button{height:30px;width:80px;border:none;color:#fff;border-radius:4px;background-color:#000;cursor:pointer;text-transform:uppercase}.card .forms{padding:15px}.card .inputs{display:flex;flex-direction:column;margin-bottom:10px}.card .inputs span{font-size:12px;color:black}.card .inputs input{height:40px;padding:0px 10px;font-size:17px;box-shadow:none;outline:none}.card .inputs input[type="text"][readonly]{border: 2px solid rgba(0,0,0,0)}
-    </style>                     
+    </style> 
     <div class="container"> 
         <div class="card"> 
             <form method="POST">
                 <div class="info"> 
                     <span>My Profile</span> 
-                    <button type="submit" name="saveprofilebutton">Save</button> 
+                    <button type="submit" class="btn btn-primary w-100 py-3" name="saveprofilebutton">Save</button> 
                 </div> 
                 <div class="forms"> 
                     <div class="inputs"> 
@@ -204,104 +291,26 @@
                     <div class="inputs"> 
                     <span>Gender(Male/Female)</span> 
                     <input type="text" name="gender" id="gender"> 
-                    </div> 
+                    </div> -->
                     <!--<input type="radio" name="gender" id="female" value="female"> 
                     </div> 
                     <div class="inputs"> 
                     <span>Gender</span> 
                     <input type="radio" name="gender" id="male" value="male"> 
                     </div> -->
-                    <div class="inputs"> 
+                    <!--<div class="inputs"> 
                     <span>Date of Birth</span> 
                     <input type="date" name="dateOfBirth" id="dateOfBirth"> 
                     </div> 
                 </div>
             </form>
         </div>
-    </div>
+    </div>-->
     <!--content end-->                    
 
 
      <!-- Footer Start -->
-     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Company</h4>
-                    <a class="btn btn-link" href="about.php">About Us</a>
-                    <a class="btn btn-link" href="contact.php">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="about.php">FAQs & Help</a>
-                    <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/adminLogin.php">Admin/Staff LogIn</a>
-
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jalan 6/27a, Wangsa Maju, 54200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+60 3-4142 0082</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>amzar@nsc.gov.my</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/badmintonHall.jpg" alt="Badminton Hall">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/swimmingPool.jpg" alt="Swimming Pool">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/sportsTrack.jpg" alt="Sports Track">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/soccerField.jpg" alt="Soccer Field">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/ksnSetiawangsa.jpg" alt="KSN Setiawangsa">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/bg-hero.jpg" alt="KSN Setiawangsa">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Receive news and promotion for our upcoming events</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="index.php">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+     <?php include 'footer.php' ?>
     <!-- Footer End -->
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

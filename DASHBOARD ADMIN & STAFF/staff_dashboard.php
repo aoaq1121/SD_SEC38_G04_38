@@ -128,7 +128,7 @@
 					session_start();
 					$username = $_SESSION['username'];
 					$con=mysqli_connect("localhost","root","root","msnbooking");
-					$sql = "SELECT * FROM admin WHERE username = '$username'";
+					$sql = "SELECT * FROM staff WHERE username = '$username'";
 
 					$result = mysqli_query($con, $sql);
 
@@ -164,10 +164,15 @@
 							<a class="dropdown-item" href="profile.php"
 								><i class="dw dw-user1"></i> Profile</a
 							>
+
+							<a class="dropdown-item" href="changePassword.php"
+								><i class="dw dw-user1"></i> Change Password</a
+							>
+
 							<a class="dropdown-item" href="profile.php"
 								><i class="dw dw-settings2"></i> Setting</a
 							>
-							<a class="dropdown-item" href="faq.html"
+							<a class="dropdown-item" href="faq.php"
 								><i class="dw dw-help"></i> Help</a
 							>
 							<a class="dropdown-item" href="adminLogin.php"
@@ -183,7 +188,7 @@
 				</div>
 			</div>
 		</div>
-
+		<!--right side bar start-->
 		<div class="right-sidebar">
 			<div class="sidebar-title">
 				<h3 class="weight-600 font-16 text-blue">
@@ -353,7 +358,9 @@
 				</div>
 			</div>
 		</div>
-
+		<!--right side bar end-->
+		
+		<!-- left side bar start-->
 		<div class="left-side-bar">
 			<div class="brand-logo">
 				<a href="admin_dashboard.php">
@@ -375,7 +382,7 @@
 							</a>
 						</li>
 						
-						<li>
+						<!--<li>
 							<a href="calendar.html" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-calendar4-week"></span
 								><span class="mtext">Calendar</span>
@@ -393,7 +400,7 @@
 								<li><a href="jvectormap.html">jvectormap</a></li>
 								<li><a href="apexcharts.html">Apexcharts</a></li>
 							</ul>
-						</li>
+						</li>-->
 
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle">
@@ -404,11 +411,14 @@
 								<li><a href="../MSN BOOKING SYSTEM/index.php">Home Page</a></li>
 								<li><a href="../MSN BOOKING SYSTEM/about.php">About Us</a></li>
 								<li><a href="../MSN BOOKING SYSTEM/contact.php">Contact Us</a></li>
+								<li><a href="../MSN BOOKING SYSTEM/pricerate.php">Price Rate</a></li>
 								<li><a href="editcontact.php">Contact Settings</a></li>
 								<li><a href="editabout.php">About Us Settings</a></li>
+								<li><a href="test.php">Testing</a></li>
+						
 							</ul>
 						</li>
-						<li class="dropdown">
+						<!--<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle">
 								<span class="micon bi bi-bug"></span
 								><span class="mtext">Error Pages</span>
@@ -420,7 +430,7 @@
 								<li><a href="500.html">500</a></li>
 								<li><a href="503.html">503</a></li>
 							</ul>
-						</li>
+						</li>-->
 
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle">
@@ -441,7 +451,7 @@
 							</ul>
 						</li>
 						
-						<li>
+						<!--<li>
 							<a href="invoice.html" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-receipt-cutoff"></span
 								><span class="mtext">Invoice</span>
@@ -466,7 +476,7 @@
 									<img src="vendors/images/coming-soon.png" alt="" width="25"
 								/></span>
 							</a>
-						</li>
+						</li>-->
 					</ul>
 				</div>
 			</div>
@@ -635,7 +645,175 @@
 					</div>
 				</div>
 
+				<?php
+    				$type = $_SESSION['type'];
+    				$con = mysqli_connect("localhost", "root", "root", "msnbooking");
+
+    				if(!$con){
+        				die('Could not Connect MySql Server:' .mysqli_connect_error());
+      				}
+
+      				$sql = "SELECT * FROM users ";
+      				$result = mysqli_query($con, $sql);
+  
+    
+    				mysqli_close($con);
+				?>
+
 				<div class="card-box pb-10">
+					<div class="h5 pd-20 mb-0">List of Customers : <?php echo mysqli_num_rows($result)?></div>
+					<table class="data-table table nowrap">
+
+						<thead>
+							<tr>
+								<th class="table-plus">Username</th>
+                                <th>Name</th>
+								<th>Email</th>
+								<th>Phone Number</th>
+								<th>DOB</th>
+								<th>Gender</th>
+								<th class="datatable-nosort">Actions</th>
+							</tr>
+						</thead>
+
+						<tbody>
+                        <?php
+                            // LOOP TILL END OF DATA
+                            while($row = mysqli_fetch_assoc($result))
+                            {
+
+                        ?>
+							<tr>
+								<td class="table-plus">
+									<div class="name-avatar d-flex align-items-center">
+										<div class="avatar mr-2 flex-shrink-0">
+											<img
+												src="vendors/images/photo4.jpg"
+												class="border-radius-100 shadow"
+												width="40"
+												height="40"
+												alt=""
+											/>
+										</div>
+										<div class="txt">
+											<div class="weight-600"><?php echo $row['name'] ?></div>
+										</div>
+										
+									</div>
+								</td>
+                                <td><?php echo $row['fullname'] ?></td>
+								<td><?php echo $row['email'] ?></td>
+								<td><?php echo "+60".$row['phoneNumber'] ?></td>
+								<td><?php echo $row['dateOfBirth'] ?></td>
+								<td><?php echo $row['gender'] ?></td>
+								<td>
+									<div class="table-actions">
+										<a href="test.php?id=<?php echo $row['id']; ?>" data-color="#265ed7">
+											<i class="icon-copy dw dw-edit2"></i>
+											
+										</a>
+										<!--<i class="icon-copy dw dw-delete-3" data-color="#e95959"></i>
+										<a href="" data-color="#e95959">
+											<i class="icon-copy dw dw-delete-3"></i>
+											
+										</a>-->
+											
+											
+									</div>
+								</td>
+							</tr>
+
+                        <?php
+                            }
+                        ?>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 mb-20">
+					</div>
+				</div>
+
+				<?php
+    				$type = $_SESSION['type'];
+    				$con = mysqli_connect("localhost", "root", "root", "msnbooking");
+
+    				if(!$con){
+        				die('Could not Connect MySql Server:' .mysqli_connect_error());
+      				}
+
+      				$sql = "SELECT * FROM contact ";
+      				$fb = mysqli_query($con, $sql);
+  
+    
+    				mysqli_close($con);
+				?>
+
+				<div class="card-box pb-10">
+					<div class="h5 pd-20 mb-0">Customer's Feedbacks: <?php echo mysqli_num_rows($result)?></div>
+					<table class="data-table table nowrap">
+
+						<thead>
+							<tr>
+								<th class="table-plus">Name</th>
+								<th>Email</th>
+								<th>Subject</th>
+								<th>Message</th>
+							</tr>
+						</thead>
+
+						<tbody>
+                        <?php
+                            // LOOP TILL END OF DATA
+                            while($row = mysqli_fetch_assoc($fb))
+                            {
+
+                        ?>
+							<tr>
+								<td class="table-plus">
+									<div class="name-avatar d-flex align-items-center">
+										<div class="avatar mr-2 flex-shrink-0">
+											<img
+												src="vendors/images/photo4.jpg"
+												class="border-radius-100 shadow"
+												width="40"
+												height="40"
+												alt=""
+											/>
+										</div>
+										<div class="txt">
+											<div class="weight-600"><?php echo $row['yourname'] ?></div>
+										</div>
+										
+									</div>
+								</td>
+								<td><?php echo $row['youremail'] ?></td>
+								<td><?php echo $row['subject'] ?></td>
+								<td><?php echo $row['message'] ?></td>
+							</tr>
+
+                        <?php
+                            }
+                        ?>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 mb-20">
+					</div>
+				</div>
+
+				<div class="footer-wrap pd-20 mb-20 card-box">
+					MSN - Administrator Dashboard
+				</div>
+
+				
+			</div>
+		</div>
+
+				<!--<div class="card-box pb-10">
 					<div class="h5 pd-20 mb-0">Recent Booking</div>
 					<table class="data-table table nowrap">
 						<thead>
@@ -976,7 +1154,7 @@
 
 				
 			</div>
-		</div>
+		</div>-->
 		<!-- welcome modal start -->
 		<div class="welcome-modal">
 			<button class="welcome-modal-close">
