@@ -44,7 +44,7 @@
 					</span>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="name" id="name" placeholder="Username"  pattern="[A-Za-z0-9]{4}" title="At least 4 or more characters with alphabets/numbers"required="">
+						<input class="input100" type="text" name="name" id="name" placeholder="Username"  pattern="[A-Za-z0-9]{4,}" title="At least 4 or more characters with alphabets/numbers"required="">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
@@ -54,7 +54,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" id="password" pattern="[_%+\-@#](?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" placeholder="Password" minlength="6" maxlength="15" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" required="">
+						<input class="input100" type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" placeholder="Password" minlength="6" maxlength="15" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" required="">
 						
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 						

@@ -223,20 +223,20 @@
                             
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="currentpass" minlength="6" maxlength="15" id="currentpass" placeholder="Current Password" >
+                                    <input type="password" class="form-control" name="currentpass" minlength="6" maxlength="15" id="currentpass" placeholder="Current Password" >
                                     <label for="fullname" style="color:lightslategrey">Current Password</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" name="password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="[_%+\-@#](?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" id="password" placeholder="New Password">
+                                    <input type="password" class="form-control" name="password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" id="password" placeholder="New Password">
                                     <label for="paasowrd" style="color:lightslategrey">New Password</label>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" name="cpassword" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="[_%+\-@#](?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" id="cpassword" placeholder="Confirm Password">
+                                    <input type="password" class="form-control" name="cpassword" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" id="cpassword" placeholder="Confirm Password">
                                     <label for="cpassword" style="color:lightslategrey">Confirm Password</label>
                                 </div>
                             </div>

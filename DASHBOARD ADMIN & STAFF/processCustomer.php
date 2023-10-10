@@ -36,6 +36,7 @@
          $qry = mysqli_query($con,$sqlStr );
          return $qry;
      }
+     
     }
 
 

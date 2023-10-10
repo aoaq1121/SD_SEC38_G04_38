@@ -257,13 +257,13 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                 <?php include 'protect.php'?>
-                                    <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Your Name" required>
+                                    <input type="text" class="form-control" id="yourname" name="yourname"  title="Please Enter Your Name" placeholder="Your Name" required>
                                     <label for="name" style="color:lightslategrey">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="youremail"  name="youremail" placeholder="Your Email" required>
+                                    <input type="email" class="form-control" id="youremail"  name="youremail" title="Please Enter Your Email" placeholder="Your Email" required>
                                     <label for="email" style="color:lightslategrey">Your Email</label>
                                 </div>
                             </div>
@@ -275,12 +275,12 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
+                                    <textarea class="form-control" placeholder="Leave a feedback here" title="Please Enter Your feedback"  id="message" name="message" style="height: 100px" required></textarea>
                                     <label for="message" style="color:lightslategrey">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit" name="sendmessage">Send Message</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit" name="sendmessage">Send Feedback</button>
                             </div>
                         </div>
                     </form>

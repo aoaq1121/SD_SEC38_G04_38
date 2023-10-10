@@ -54,7 +54,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter new password">
-						<input class="input100" type="password" name="password" id="password" placeholder="New Password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="[_%+\-@#](?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" required="">
+						<input class="input100" type="password" name="password" id="password" placeholder="New Password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" required="">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
