@@ -214,14 +214,20 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="gender" name="gender" placeholder="Gender">
+                                    <!--<input type="text" class="form-control" id="gender" name="gender" placeholder="Gender">-->
+                                    <select class="form-control" name="gender" id="gender" >
+                                    <option value="female">Female</option>
+                                    <option value="male">Male</option>
+                                    </select>
                                     <label for="gender" style="color:lightslategrey">Gender(Male/Female)</label>
+                                    
                                 </div>
                             </div>
                             
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                                    
                                     <label for="phoneNumber" style="color:lightslategrey">Mobile Phone (+60)</label>
                                 </div>
                             </div>

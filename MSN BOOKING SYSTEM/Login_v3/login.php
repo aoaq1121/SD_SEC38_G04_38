@@ -26,10 +26,16 @@ if (isset($_POST['email'])) {
 			exit;
         }
 		else{
-			setcookie("error","Incorrect Email or Password",time()+3);
+			echo"<script>
+			alert('Incorrect Email or Password');
+			</script>
+			";
 		} 
     }else {
-        setcookie("error","Incorrect Email or Password",time()+3);
+        echo"<script>
+		alert('Incorrect Email or Password');
+		</script>
+		";
     }
 }
 ?>
