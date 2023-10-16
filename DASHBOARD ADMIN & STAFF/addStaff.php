@@ -216,7 +216,7 @@
 																			$country = $_POST["country"];
 																			$bank = $_POST["bank"];
 
-																			$password = $next_username;
+																			$password = md5("$next_username");
 
 																			// Insert staff information into the database
 																			$sql = "INSERT INTO staff (username, password, fName, email, phoneNumber, dob, gender, address, postalcode, state, country, bank) 

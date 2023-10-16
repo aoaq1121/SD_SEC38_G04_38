@@ -330,6 +330,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$result = mysqli_query($conn,$updateQuery);
 
     if ($result) {
+		
         echo "
 		<script>
 		alert('Contact information updated successfully.')
@@ -340,6 +341,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<?php
+                // Include your database connection code here
+                include("dbconnect.php");
+
+
+                // Fetch contact information from the database (assuming you have a 'contacts' table)
+                $query = "SELECT office,mobile,name,email,businesshour FROM editcontact WHERE id = 1"; // You may need to change '1' to the ID of your contact
+                $result = mysqli_query($conn,$query);
+
+                if ($result && $result->num_rows > 0) {
+                    $contact = $result->fetch_assoc();
+                }
+ ?>
 										<li class="nav-item">
 											<a class="nav-link active" data-toggle="tab" href="#setting" role="tab">Contact Setting</a>
 										</li>

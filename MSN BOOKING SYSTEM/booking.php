@@ -267,7 +267,7 @@
                                     <option value="">Time</option>
                                     <?php
                                     include("Login_v3/db.php");
-                                    $timesql = "SELECT * FROM badmintontimeoption "; // You may need to change '1' to the ID of your contact
+                                    $timesql = "SELECT * FROM `badmintontimeoption` ORDER BY `badmintontimeoption`.`timeid` ASC "; // You may need to change '1' to the ID of your contact
                                     $timequery = mysqli_query($conn,$timesql);
                                     
                                         while ($row = mysqli_fetch_assoc($timequery)) {
@@ -308,7 +308,7 @@
                                     <option value="4">4 hour</option>-->
                                     <?php
                                         include("Login_v3/db.php");
-                                        $durationsql = "SELECT * FROM badmintondurationoption "; // You may need to change '1' to the ID of your contact
+                                        $durationsql = "SELECT * FROM badmintondurationoption ORDER BY `badmintondurationoption`.`durationid` ASC "; // You may need to change '1' to the ID of your contact
                                         $durationquery = mysqli_query($conn,$durationsql);
                                         while ($row = mysqli_fetch_assoc($durationquery)) {
                                             echo '<option value="' . $row['durationid'] . '">' . $row['durationvalue'] . '</option>';

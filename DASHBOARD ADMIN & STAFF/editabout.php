@@ -339,6 +339,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<?php
+    // Include your database connection code here
+    include("dbconnect.php");
+
+
+    // Fetch contact information from the database (assuming you have a 'contacts' table)
+    $query = "SELECT * FROM editabout WHERE id = 1"; // You may need to change '1' to the ID of your contact
+    $result = mysqli_query($conn,$query);
+
+    if ($result && $result->num_rows > 0) {
+    $about = $result->fetch_assoc();
+    }   
+    ?> 
 										<li class="nav-item">
 											<a class="nav-link active" data-toggle="tab" href="#setting" role="tab">About Setting</a>
 										</li>

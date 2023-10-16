@@ -410,7 +410,8 @@
 				</div>
 
                 <div class="card-box pb-10">
-					<div class="h5 pd-20 mb-0">Badminton Time Option</div>
+					<div class="h5 pd-20 mb-0">Badminton Time Option<a href="addbadmintonoption.php" class="btn btn-primary">Add Time Option</a></div>
+					
 					
 						<table class="data-table table nowrap">
                         <thead>
@@ -453,7 +454,7 @@
 				</div>
                 <br>
                 <div class="card-box pb-10">
-					<div class="h5 pd-20 mb-0">Badminton Duration Option</div>
+					<div class="h5 pd-20 mb-0">Badminton Duration Option<a href="addbadmintonoption.php" class="btn btn-primary">Add Duration Option</a></div>
 					
 						<table class="data-table table nowrap">
                         <thead>

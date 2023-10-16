@@ -183,7 +183,34 @@
 
 													
 <!-- Your HTML form goes here -->
-													
+<?php 
+                                            include "../MSN BOOKING SYSTEM/Login_v3/db.php";
+                                            if (isset($_GET['id'])) {
+                                                $id = $_GET['id'];
+                                                // Now you can use $customerId to fetch and edit the specific customer's data
+                                                //$id=$_POST['id'];
+                                            
+                                                include "processStaff.php";
+                                            $StaffQry=getStaffInfo($id);
+                                            //echo "<br>no of record:".mysqli_num_rows($userQry);
+                                            
+                                            $StaffInfo=mysqli_fetch_assoc($StaffQry);
+                                            
+                                            $id=$StaffInfo['id'];
+                                            $fname=$StaffInfo['fname'];
+                                            
+                                            $email=$StaffInfo['email'];
+											$phoneNumber=$StaffInfo['phoneNumber'];
+											$dob=$StaffInfo['dob'];
+                                            $gender=$StaffInfo['gender'];
+											$address=$StaffInfo['address'];
+											$postalcode=$StaffInfo['postalcode'];
+											$state=$StaffInfo['state'];
+											$country=$StaffInfo['country'];
+											$bank=$StaffInfo['bank'];
+                                           
+										}
+                                        ?>		
 
                                                         <form action="processStaff.php" method="POST">
                                                             <ul class="profile-edit-list row">
@@ -194,52 +221,52 @@
 																	<input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
                                                                     <div class="form-group">
                                                                         <label>Full Name</label>
-                                                                        <input class="form-control form-control-lg" type="text" name="fName" />
+                                                                        <input class="form-control form-control-lg" type="text" name="fName" value="<?php echo isset($fname) ? $fname : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Email</label>
-                                                                        <input class="form-control form-control-lg" type="email" name="email" />
+                                                                        <input class="form-control form-control-lg" type="email" name="email" value="<?php echo isset($email) ? $email : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Phone Number</label>
-                                                                        <input class="form-control form-control-lg" type="text" name="phoneNumber" />
+                                                                        <input class="form-control form-control-lg" type="text" name="phoneNumber" value="<?php echo isset($phoneNumber) ? $phoneNumber : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Date of birth</label>
-                                                                        <input class="form-control form-control-lg date-picker" type="text" name="dob"  />
+                                                                        <input class="form-control form-control-lg date-picker" type="text" name="dob"  value="<?php echo isset($dob) ? $dob : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Gender</label>
                                                                         <div class="d-flex">
                                                                             <div class="custom-control custom-radio mb-5 mr-20">
-                                                                                <input type="radio" id="male" name="gender" class="custom-control-input" value="Male"<?php echo (isset($_POST['gender']) && $_POST['gender'] == 'Male') ? ' checked' : ''; ?>/>
+                                                                                <input type="radio" id="male" name="gender" class="custom-control-input" value="Male"<?php echo (isset($gender) && $gender == 'Male') ? ' checked' : ''; ?>/>
                                                                                 <label class="custom-control-label" for="male">Male</label>
                                                                             </div>
                                                                             <div class="custom-control custom-radio mb-5">
-                                                                                <input type="radio" id="female" name="gender"  class="custom-control-input" value="Female"<?php echo (isset($_POST['gender']) && $_POST['gender'] == 'Female') ? ' checked' : ''; ?>/>
+                                                                                <input type="radio" id="female" name="gender"  class="custom-control-input" value="Female"<?php echo (isset($gender) && $gender == 'Female') ? ' checked' : ''; ?>/>
                                                                                 <label class="custom-control-label" for="female">Female</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Address</label>
-                                                                        <input class="form-control" type="text" name="address" />
+                                                                        <input class="form-control" type="text" name="address" value="<?php echo isset($address) ? $address : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Postal Code</label>
-                                                                        <input class="form-control form-control-lg" type="text" name="postalcode" />
+                                                                        <input class="form-control form-control-lg" type="text" name="postalcode" value="<?php echo isset($postalcode) ? $postalcode : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>State</label>
-                                                                        <input class="form-control form-control-lg" type="text" name="state" />
+                                                                        <input class="form-control form-control-lg" type="text" name="state" value="<?php echo isset($state) ? $state : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Country</label>
-                                                                        <input class="form-control form-control-lg" type="text" name="country" />
+                                                                        <input class="form-control form-control-lg" type="text" name="country" value="<?php echo isset($country) ? $country : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Bank Card Number</label>
-                                                                        <input class="form-control form-control-lg" type="text" name="bank" />
+                                                                        <input class="form-control form-control-lg" type="text" name="bank" value="<?php echo isset($bank) ? $bank : ''; ?>"/>
                                                                     </div>
                                                                     <div class="form-group mb-0">
                                                                         <input type="submit" class="btn btn-primary" name="updateStaffButton" value="Update Information" />

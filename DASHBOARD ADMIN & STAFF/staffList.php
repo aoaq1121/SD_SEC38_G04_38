@@ -290,7 +290,7 @@
 				</div>
 
 				<div class="card-box pb-10">
-					<div class="h5 pd-20 mb-0">Staff List</div>
+					<div class="h5 pd-20 mb-0">Staff List<a href="addstaff.php" class="btn btn-primary">Add Staff</a></div>
 					
 						<table>
 							<tr>

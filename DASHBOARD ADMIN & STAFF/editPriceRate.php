@@ -307,6 +307,7 @@
                                                     //$stmt = $mysqli->prepare($updateQuery);
                                                     //$stmt->bind_param("sss", $newOffice, $newMobile, $newName, $newEmail);
                                                     $result = mysqli_query($conn,$updateQuery);
+													
 
                                                     if ($result) {
                                                         echo "
@@ -319,6 +320,19 @@
                                                     }
                                                 }
                                             ?>
+											  <?php
+    // Include your database connection code here
+	include("dbconnect.php");
+
+
+    // Fetch contact information from the database (assuming you have a 'contacts' table)
+    $query = "SELECT * FROM editpricerate WHERE id = 1"; // You may need to change '1' to the ID of your contact
+    $result = mysqli_query($conn,$query);
+
+    if ($result && $result->num_rows > 0) {
+    $pricerate = $result->fetch_assoc();
+    }   
+    ?> 
 
 										<li class="nav-item">
 											<a class="nav-link active" data-toggle="tab" href="#setting" role="tab">Price Rate Setting</a>

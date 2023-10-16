@@ -1,7 +1,21 @@
+
 <?php
 if(isSet($_POST['updateStaffButton'])){
     updateStaff();
     header('Location:staffList.php');
+}
+
+function getStaffInfo($id){
+    $con=mysqli_connect("localhost", "root", "root", "msnbooking");
+ if (mysqli_connect_errno())
+{
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+ }
+else{
+ $sqlStr = "select * from staff where username='".$id."'";
+ $qry = mysqli_query($con,$sqlStr );
+ return $qry;
+}
 }
 function updateStaff(){
     $con=mysqli_connect("localhost", "root", "root", "msnbooking");
