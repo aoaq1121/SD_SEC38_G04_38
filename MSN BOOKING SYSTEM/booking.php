@@ -1,7 +1,11 @@
+ 
 <!DOCTYPE html>
 <?php
     session_start();
+    //if ($_SESSION['email'] != null) {
+        // header("location:MSN BOOKING SYSTEM/Login_v3/login.php");
     // session_destroy();
+   // }
 
 ?>
 <html lang="en">
@@ -220,8 +224,17 @@
     </div>-->
     <!-- Process Start -->
 
+   
+    <?php
 
+if($_SESSION['email']){
+//if ($_SESSION['email'] != null) {
+//if(!isset($_SESSION["login"])){
 
+  //header("location:../MSN BOOKING SYSTEM/Login_v3/login.php"); 
+//}
+?> 
+                      
     <!-- Booking Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
@@ -251,9 +264,10 @@
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>-->
+                                
                                 <div class="col-12">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
-                                    
+                                    <?php //if($_SESSION['email']){?>
                                     <input type="date" class="form-control bg-transparent datepicker-input" id="date" name="date" value="<?php echo $searchDate; ?>"  placeholder="Date" required />
                                     <label for="date">Select a date:</label>
                                     </div>
@@ -341,6 +355,7 @@
                                     
                                     <button class="btn btn-outline-light w-100 py-3" type="submit" name="searchButton">Search</button>
                                 </div>
+                                <?php //}?>
                             </div>
                             <!-- <div class="row g-3">
                                 
@@ -417,13 +432,15 @@
                                             echo "<input type='hidden' name='searchTime' value='$searchTime'/>";
                                             echo "<input type='hidden' name='endTime' value='$endTime'/>";
                                             echo "<input type='hidden' name='bookingID' value='$bookingID'/>";
+                                            echo "<input type='hidden' name='duration' value='$searchDurationHours'/>";
+
                                             
                                         }
                                         
                                         echo "<br><button class='btn btn-outline-light w-100 py-3' type='submit' name='bookCourt'>Book Court</button>";
                                         echo "</form>";
                                     } elseif (mysqli_num_rows($result) > 0) {
-                                        $searchCourt = "SELECT * FROM badmintonslots WHERE date = '$searchDate' AND '$searchTime' >= `starttime` AND '$searchTime' < `endtime` OR '$endTime' >= `starttime` AND '$endTime' < `endtime`";
+                                        $searchCourt = "SELECT * FROM badmintonslots WHERE date = '$searchDate' AND ('$searchTime' >= `starttime` AND '$searchTime' < `endtime` OR '$endTime' >= `starttime` AND '$endTime' < `endtime`)";
                                         $checkCourt = mysqli_query($conn,$searchCourt);
                                         if (mysqli_num_rows($checkCourt) == 4) {
                                             echo "<h1 style='color: white;'>No available courts for the selected date, time, and duration.</h2>";
@@ -441,7 +458,7 @@
                                         $getCourt = mysqli_query($conn,"SELECT courtid FROM court");
                                                                     
                                         
-                                        echo "<form method='post' action=''>";
+                                        echo "<form method='post' action='badmintonprice.php'>";
                                         while ($getCourtRow = mysqli_fetch_assoc($getCourt)) {
                                             $courtId = $getCourtRow['courtid'];
                                             
@@ -455,7 +472,8 @@
                                         echo "<input type='hidden' name='searchTime' value='$searchTime'/>";
                                         echo "<input type='hidden' name='endTime' value='$endTime'/>";
                                         echo "<input type='hidden' name='bookingID' value='$bookingID'/>";
-                                        echo "<button class='btn btn-outline-light w-100 py-3' type='submit' name='bookCourt'>Book Court</button>";
+                                        echo "<input type='hidden' name='duration' value='$searchDurationHours'/>";
+                                        echo "<button class='btn btn-outline-light w-100 py-3' type='submit' name='bookCourt' value='1'>Book Court</button>";
                                         echo "</form>";
                                         }
                                 }
@@ -528,18 +546,7 @@
                                         // mysqli_close($mysqli);
                                     }
 
-                                    if(isset($_POST['bookCourt'])){
-                                        $bookingID = $_POST['bookingID'];
-                                        $selectedCourt = $_POST['selectedCourt'];
-                                        $searchDate = $_POST['searchDate'];
-                                        $searchTime = $_POST['searchTime'];
-                                        $endTime = $_POST['endTime'];
-                                        // echo $bookingID;
-                                        // echo $selectedCourt;
-                                        $reserve = "INSERT INTO badmintonslots(bookingid,bsid,date,starttime,endtime,isbooked)VALUES('$bookingID','$selectedCourt','$searchDate','$searchTime','$endTime','1')";
-                                        // echo $reserve;
-                                        mysqli_query($conn,$reserve);
-                                 }
+                                    
                                 ?> 
                                 </div>
                 </div>
@@ -547,8 +554,14 @@
         </div>
     </div>
                              
-                        
-
+     <?php }else{
+        echo '<h2 style="color:white;text-align:center;">Please <a href="../MSN BOOKING SYSTEM/Login_v3/login.php">Log In</a></h2>';
+     }
+     //if(isset($_POST["email"])){
+     
+     
+     ?>                   
+    
     <?php
                         //error_reporting(E_ALL);
                         //ini_set('display_errors', '1');

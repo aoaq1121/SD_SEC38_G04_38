@@ -21,7 +21,9 @@ if (isset($_POST['email'])) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' and password = '" . md5($password). "'");
    if(!empty($result)){
         if ($row = mysqli_fetch_array($result)) {
-            
+
+
+           // $_SESSION["login"]="1";
             header("Location: ../index.php");
 			exit;
         }
