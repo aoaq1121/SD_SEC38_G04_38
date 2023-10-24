@@ -82,6 +82,7 @@
 								<li><a href="staffList.php">Staff List</a></li>
 								<li><a href="addStaff.php">Add Staff</a></li>
                                 <li><a href="addbadmintonoption.php">Add Badminton Option</a></li>
+								<li><a href="bookingList.php">Booking List</a></li>
                                 <!--<li><a href="editbadmintonoption.php">Edit Badminton Option</a></li>-->
 								<!--<li><a href="blank.html">Blank</a></li>
 								<li><a href="contact-directory.html">Contact Directory</a></li>
@@ -113,6 +114,7 @@
 								<!--<li><a href="faq.php">FAQ</a></li>-->
 								<li><a href="profile.php">Profile Setting</a></li>
                                 <li><a href="addbadmintonoption.php">Add Badminton Option</a></li>
+								<li><a href="bookingList.php">Booking List</a></li>
                                 <!--<li><a href="editbadmintonoption.php">Edit Badminton Option</a></li>-->
 								<!--<li><a href="gallery.html">Gallery</a></li>
 								<li><a href="pricing-table.html">Pricing Tables</a></li>-->
