@@ -121,6 +121,16 @@
 							</ul>
 						</li>
 						<?php } ?>
+						<li class="dropdown">
+							<a href="javascript:;" class="dropdown-toggle">
+								<span class="micon bi bi-file-earmark-text"></span
+								><span class="mtext">Report Pages</span>
+							</a>
+							<ul class="submenu">
+                                <li><a href="salesReport.php">Sales Report</a></li>
+								
+							</ul>
+						</li>
 						
 						<!--<li>
 							<a href="invoice.html" class="dropdown-toggle no-arrow">

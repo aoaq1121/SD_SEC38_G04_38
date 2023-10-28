@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
+
     //if ($_SESSION['email'] != null) {
         // header("location:MSN BOOKING SYSTEM/Login_v3/login.php");
     // session_destroy();
@@ -58,11 +59,23 @@ $duration = $_POST['duration'];
 $selectedTime = $_POST['searchTime'];
 $selectedendTime = $_POST['endTime'];
 $courtselect = $_POST['selectedCourt'];
+$email = $_SESSION['email'];
 // echo $selecteddate;
 
 // Calculate the day of the week (1 for Monday, 7 for Sunday)
 $day_of_week = date("N", strtotime($selecteddate));
 // echo $day_of_week;
+
+
+    $bookingID = $_POST['bookingID'];
+    $selectedCourt = $_POST['selectedCourt'];
+    $searchDate = $_POST['searchDate'];
+    $searchTime = $_POST['searchTime'];
+    $endTime = $_POST['endTime'];
+    // echo $bookingID;
+    // echo $selectedCourt;
+    
+
 
 // Determine the price category based on the day of the week
 if ($day_of_week >= 1 && $day_of_week <= 5) {
@@ -73,14 +86,23 @@ if ($day_of_week >= 1 && $day_of_week <= 5) {
     $result = mysqli_query($mysqli, $price);
 
     if ($result) {
+        $price = intval(mysqli_fetch_assoc($result)['weekdayrate'] * $duration);
+        $reserve = "INSERT INTO badmintonslots(bookingid,bsid,date,starttime,endtime,isbooked,price,email)VALUES('$bookingID','$selectedCourt','$searchDate','$searchTime','$endTime','1','$price','$email')";
+    // echo $reserve;
+    mysqli_query($mysqli,$reserve);
+        $priceToPass = $price*100;
         echo "<h3 style='color:white;text-align:center;'>Date: $selecteddate</h3>
               <h3 style='color:white;text-align:center;'>Time: $selectedTime - $selectedendTime</h3>
               <h3 style='color:white;text-align:center;'>Court: $courtselect</h3>
-              <h5 style='color:white;text-align:center;'>Price: RM" . mysqli_fetch_assoc($result)['weekdayrate']*$duration."</h5>
-              <form method='post' action=''>
+              <h5 style='color:white;text-align:center;'>Price: RM" .$price."</h5>";
+        echo" <form method='post' action='http://127.0.0.1:4242/fpx.php'>
+            <input type='hidden' name='price' value='$priceToPass'/>
+
               <button class='btn btn-primary w-100 py-3' type='submit' name='bookCourt' value='1'>Make Payment</button>
               </form>
          ";
+        //  header("");
+
     } else {
         echo "Price not found";
     }
@@ -91,33 +113,30 @@ if ($day_of_week >= 1 && $day_of_week <= 5) {
     $result = mysqli_query($mysqli, $price);
 
     if ($result) {
+        $price = intval(mysqli_fetch_assoc($result)['weekendrate'] * $duration);
+        $reserve = "INSERT INTO badmintonslots(bookingid,bsid,date,starttime,endtime,isbooked,price,email)VALUES('$bookingID','$selectedCourt','$searchDate','$searchTime','$endTime','1','$price','$email')";
+    // echo $reserve;
+    mysqli_query($mysqli,$reserve);
+        $priceToPass = $price*100;
         echo "<h3 style='color:white;text-align:center;'>Date: $selecteddate</h3>
               <h3 style='color:white;text-align:center;'>Time: $selectedTime - $selectedendTime</h3>
               <h3 style='color:white;text-align:center;'>Court: $courtselect</h3>
-              <h5 style='color:white;text-align:center;'> Price: RM" . mysqli_fetch_assoc($result)['weekendrate']*$duration."</h5>
-              <form method='post' action=''>
+              <h5 style='color:white;text-align:center;'> Price: RM".$price."</h5>
+              <form method='post' action='http://127.0.0.1:4242/fpx.php'>
+              <input type='hidden' name='price' value='$priceToPass'/>
+
               <button class='btn btn-primary w-100 py-3' type='submit' name='bookCourt' value='1'>Make Payment</button>
               </form>
          
          ";
+         header("http://127.0.0.1:4242/fpx.php");
     } else {
         echo "Price not found";
     }
 }
 
 
-if($_POST['bookCourt']==1){
-    $bookingID = $_POST['bookingID'];
-    $selectedCourt = $_POST['selectedCourt'];
-    $searchDate = $_POST['searchDate'];
-    $searchTime = $_POST['searchTime'];
-    $endTime = $_POST['endTime'];
-    // echo $bookingID;
-    // echo $selectedCourt;
-    $reserve = "INSERT INTO badmintonslots(bookingid,bsid,date,starttime,endtime,isbooked)VALUES('$bookingID','$selectedCourt','$searchDate','$searchTime','$endTime','1')";
-    // echo $reserve;
-    mysqli_query($mysqli,$reserve);
-}
+
 // Query the database to fetch the price based on the price category
 
 

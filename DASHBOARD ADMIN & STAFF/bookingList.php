@@ -299,6 +299,7 @@
 								<th>Date</th>
 								<th>Start</th>
 								<th>End</th>
+								<th>Email</th>
                                 <th>Delete</th>
 							</tr>
 							<?php
@@ -320,6 +321,7 @@
 								echo "<td>" . $row['date'] . "</td>";
 								echo "<td>" . $row['starttime'] . "</td>";
 								echo "<td>" . $row['endtime'] . "</td>";
+								echo "<td>" . $row['email'] . "</td>";
 								echo "<td>";
 								echo "<div class='table-actions-center'>";
 								echo "<a href='processBooking.php?id=" . $row['bookingid'] . "' data-color='#e95959' onclick='return confirm(\"Are you sure you want to delete this booking?\");'>

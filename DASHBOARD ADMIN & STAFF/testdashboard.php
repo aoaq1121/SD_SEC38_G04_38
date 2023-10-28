@@ -470,7 +470,7 @@
 							<tr>
 								<td class="table-plus">
 									<div class="name-avatar d-flex align-items-center">
-										<div class="avatar mr-2 flex-shrink-0">
+										<!--<div class="avatar mr-2 flex-shrink-0">
 											<img
 												src="vendors/images/photo4.jpg"
 												class="border-radius-100 shadow"
@@ -478,7 +478,7 @@
 												height="40"
 												alt=""
 											/>
-										</div>
+										</div>-->
 										<div class="txt">
 											<div class="weight-600"><?php echo $row['name'] ?></div>
 										</div>
@@ -557,7 +557,7 @@
 							<tr>
 								<td class="table-plus">
 									<div class="name-avatar d-flex align-items-center">
-										<div class="avatar mr-2 flex-shrink-0">
+										<!--<div class="avatar mr-2 flex-shrink-0">
 											<img
 												src="vendors/images/photo4.jpg"
 												class="border-radius-100 shadow"
@@ -565,7 +565,7 @@
 												height="40"
 												alt=""
 											/>
-										</div>
+										</div>-->
 										<div class="txt">
 											<div class="weight-600"><?php echo $row['yourname'] ?></div>
 										</div>

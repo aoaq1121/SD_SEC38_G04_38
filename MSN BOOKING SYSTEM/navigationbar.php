@@ -75,6 +75,7 @@
                         <?php if($_SESSION['email']){?><a href=""  class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="img/useryellow.png" width="30px" height="30px"></a>
                         <div class="dropdown-menu m-0">
                             <a href="profile.php" class="dropdown-item">Profile Setting</a>
+                            <a href="bookinghistory.php" class="dropdown-item">Booking History</a>
                             <a href="changepassword.php" class="dropdown-item">Change Password</a>
                             <a href="../MSN BOOKING SYSTEM/Login_v3/logout.php" class="dropdown-item">Sign Out</a>
                             <?php } ?>

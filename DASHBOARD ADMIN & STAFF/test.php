@@ -331,7 +331,7 @@
 							<tr>
 								<td class="table-plus">
 									<div class="name-avatar d-flex align-items-center">
-										<div class="avatar mr-2 flex-shrink-0">
+										<!--<div class="avatar mr-2 flex-shrink-0">
 											<img
 												src="vendors/images/photo4.jpg"
 												class="border-radius-100 shadow"
@@ -339,7 +339,7 @@
 												height="40"
 												alt=""
 											/>
-										</div>
+										</div>-->
 										<div class="txt">
 											<div class="weight-600"><?php echo $row['name'] ?></div>
 										</div>
@@ -456,7 +456,11 @@
 															</div>
                                                             <div class="form-group">
 																<label>Gender</label>
-																<input class="form-control form-control-lg" type="text" name="gender" value= <?php echo "'$gender'"?>/>
+																<select class="form-control" name="gender"  value= <?php echo "'$gender'"?>>
+                                    							<option value="female">Female</option>
+                                    							<option value="male">Male</option>
+                                   								</select>
+																<!--<input class="form-control form-control-lg" type="text" name="gender" value= <?//php echo "'$gender'"?>/>-->
 															</div>
 															<div class="form-group">
 																<label>Date of Birth</label>
