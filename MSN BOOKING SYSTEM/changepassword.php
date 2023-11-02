@@ -67,7 +67,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="index.php" class="nav-item nav-link active">Home</a>
+                    <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="about.php" class="nav-item nav-link">About</a>
                     <a href="service.php" class="nav-item nav-link">Services</a>
                     <a href="contact.php" class="nav-item nav-link">Contact</a>
@@ -126,11 +126,11 @@
                 <?php }?>
                     
                     <div class="nav-item dropdown">
-                        <?php if($_SESSION['email']){?><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="img/useryellow.png" width="30px" height="30px"></a>
+                        <?php if($_SESSION['email']){?><a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><img src="img/useryellow.png" width="30px" height="30px"></a>
                         <div class="dropdown-menu m-0">
                             <a href="profile.php" class="dropdown-item">Profile Setting</a>
                             <a href="bookinghistory.php" class="dropdown-item">Booking History</a>
-                            <a href="changepassword.php" class="dropdown-item">Change Password</a>
+                            <a href="changepassword.php" class="dropdown-item active">Change Password</a>
                             <a href="../MSN BOOKING SYSTEM/Login_v3/logout.php" class="dropdown-item">Sign Out</a>
                             <?php } ?>
                         </div>
