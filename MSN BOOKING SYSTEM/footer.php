@@ -11,17 +11,30 @@
                     <a class="btn btn-link" href="../DASHBOARD ADMIN & STAFF/adminLogin.php">Admin/Staff LogIn</a>
 
                 </div>
+                <?php
+                // Include your database connection code here
+                include("Login_v3/db.php");
+
+
+                // Fetch contact information from the database (assuming you have a 'contacts' table)
+                $query = "SELECT office,mobile,name,email,businesshour FROM editcontact WHERE id = 1"; // You may need to change '1' to the ID of your contact
+                $result = mysqli_query($conn,$query);
+
+                if ($result && $result->num_rows > 0) {
+                    $contact = $result->fetch_assoc();
+                }
+            ?>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jalan 6/27a, Wangsa Maju, 54200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+60 3-4142 0082</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>amzar@nsc.gov.my</p>
-                    <div class="d-flex pt-2">
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i><?php echo $contact ['office'];?></p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><?php echo "+60".$contact ['mobile'];?></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><?php echo $contact['email'];?></p>
+                    <!--<div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Gallery</h4>

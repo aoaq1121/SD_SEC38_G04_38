@@ -1,11 +1,11 @@
 <?php
 require_once 'shared.php';
-
+$price=$_POST['price'];
 try {
   $paymentIntent = $stripe->paymentIntents->create([
     'payment_method_types' => ['link', 'card'],
-    'amount' => 1999,
-    'currency' => 'usd',
+    'amount' => $price,
+    'currency' => 'MYR',
   ]);
 } catch (\Stripe\Exception\ApiErrorException $e) {
   http_response_code(400);
@@ -57,7 +57,8 @@ try {
           const {error} = await stripe.confirmPayment({
             elements,
             confirmParams: {
-              return_url: 'http://localhost:4242/payment/next',
+              //return_url: 'http://localhost:4242/payment/next',
+              return_url: `${window.location.origin}/return.php`,
             },
           });
           if(error) {
@@ -74,24 +75,24 @@ try {
   </head>
   <body>
     <main>
-      <a href="/">home</a>
-      <h1>Link</h1>
+      <!--<a href="/">home</a>-->
+      <h1>Card Method</h1>
 
       <p>
-        <h4>Try a <a href="https://stripe.com/docs/testing#cards" target="_blank">test card</a>:</h4>
+        <!--<h4>Try a <a href="https://stripe.com/docs/testing#cards" target="_blank">test card</a>:</h4>-->
         <div>
-          <code>4242424242424242</code> (Visa)
+          <code>4000004580000002</code> (Visa)
         </div>
         <div>
           <code>5555555555554444</code> (Mastercard)
         </div>
-        <div>
+        <!--<div>
           <code>4000002500003155</code> (Requires <a href="https://www.youtube.com/watch?v=2kc-FjU2-mY" target="_blank">3DSecure</a>)
-        </div>
+        </div>-->
       </p>
 
       <p>
-        Use any future expiration, any 3 digit CVC, and any postal code.
+        Expiration: 11/28, CVC: 555 
       </p>
 
       <form id="payment-form">

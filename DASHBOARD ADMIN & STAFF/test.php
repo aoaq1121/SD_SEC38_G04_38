@@ -427,7 +427,9 @@
                                             $password=$customerInfo['password'];
                                             $gender=$customerInfo['gender'];
                                             $dateOfBirth=$customerInfo['dateOfBirth'];
-                                            $phoneNumber=$customerInfo['phoneNumber'];}
+                                            $phoneNumber=$customerInfo['phoneNumber'];
+											echo $gender;
+										}
                                         ?>
 
 										<!-- Setting Tab start -->
@@ -456,15 +458,15 @@
 															</div>
                                                             <div class="form-group">
 																<label>Gender</label>
-																<select class="form-control" name="gender"  value= <?php echo "'$gender'"?>>
-                                    							<option value="female">Female</option>
-                                    							<option value="male">Male</option>
+																<select class="form-control" name="gender"   <?php //echo "value='$gender'"?>>
+                                    							<option value="female" <?php if ($gender === 'female') echo 'selected'; ?>>Female</option>
+                                    							<option value="male" <?php if ($gender === 'male') echo 'selected'; ?>>Male</option>
                                    								</select>
 																<!--<input class="form-control form-control-lg" type="text" name="gender" value= <?//php echo "'$gender'"?>/>-->
 															</div>
 															<div class="form-group">
 																<label>Date of Birth</label>
-																<input class="form-control form-control-lg" type="text" name="dateOfBirth" <?php echo "value='$dateOfBirth'"?>/>
+																<input class="form-control form-control-lg" type="date" name="dateOfBirth" <?php echo "value='$dateOfBirth'"?>/>
 															</div>
 															<div class="form-group">
 																<label>Email</label>

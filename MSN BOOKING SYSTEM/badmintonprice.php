@@ -18,7 +18,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/logo.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,7 +96,7 @@
                     <small class="text-light"><i class="fa fa-envelope-open me-2"></i>amzar@nsc.gov.my</small>
                 </div>
             </div>
-            <div class="col-lg-4 text-center text-lg-end">
+            <!--<div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -104,7 +104,7 @@
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
     <!-- Topbar End -->
@@ -169,7 +169,7 @@ if ($day_of_week >= 1 && $day_of_week <= 5) {
               <h3 style='color:white;text-align:left;'>Time: $selectedTime - $selectedendTime</h3>
               <h3 style='color:white;text-align:left;'>Court: $courtselect</h3>
               <h5 style='color:white;text-align:left;'>Price: RM" .$price."</h5>";
-        echo" <form method='post' action='http://127.0.0.1:4242/fpx.php'>
+        echo" <form method='post' action='http://127.0.0.1:4242/link.php'>
             <input type='hidden' name='price' value='$priceToPass'/>
 
               <button class='btn btn-primary w-100 py-3' type='submit' name='bookCourt' value='1'>Make Payment</button>
@@ -196,7 +196,7 @@ if ($day_of_week >= 1 && $day_of_week <= 5) {
               <h3 style='color:white;text-align:left;'>Time: $selectedTime - $selectedendTime</h3>
               <h3 style='color:white;text-align:left;'>Court: $courtselect</h3>
               <h5 style='color:white;text-align:left;'> Price: RM".$price."</h5>
-              <form method='post' action='http://127.0.0.1:4242/fpx.php'>
+              <form method='post' action='http://127.0.0.1:4242/link.php'>
               <input type='hidden' name='price' value='$priceToPass'/>
 
               <button class='btn btn-primary w-100 py-3' type='submit' name='bookCourt' value='1'>Make Payment</button>

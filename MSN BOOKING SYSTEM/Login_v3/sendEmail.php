@@ -50,7 +50,11 @@ if(isset($_POST['submit']) && $_POST['email'])
           $mail->Body    = "<a href='localhost/sd/MSN%20BOOKING%20SYSTEM/Login_v3/verify.php?key=".$_POST['email']."&token=".$token."'>Click and Verify Email</a>";
       
           $mail->send();
-          echo 'Message has been sent';
+          
+          echo "<script>
+          alert('Message has been sent');
+          </script>
+          ";
       } catch (Exception $e) {
           echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
           return false;
@@ -58,7 +62,10 @@ if(isset($_POST['submit']) && $_POST['email'])
     }
     else
     {
-      echo "You have already registered with us. Check Your email box and verify email.";
+      echo "<script>
+      alert('You have already registered with us. Check Your email box and verify email.');
+      </script>
+      ";
     }
 }
 ?>

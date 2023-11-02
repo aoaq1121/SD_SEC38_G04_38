@@ -1,11 +1,11 @@
 <?php
 require_once 'shared.php';
-
+$price=$_POST['price'];
 try {
   $paymentIntent = $stripe->paymentIntents->create([
     'payment_method_types' => ['card'],
-    'amount' => 1999,
-    'currency' => 'usd',
+    'amount' =>$price ,
+    'currency' => 'MYR',
   ]);
 } catch (\Stripe\Exception\ApiErrorException $e) {
   http_response_code(400);
@@ -55,6 +55,7 @@ try {
               payment_method: {
                 card: cardElement,
               },
+              return_url: `${window.location.origin}/return.php`,
             },
           );
           if(error) {
