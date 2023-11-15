@@ -147,7 +147,7 @@
 								$year = date('Y'); // Current year
 
 								// Query the database to fetch sales data for the selected month
-								$query = "SELECT date, price FROM badmintonslots
+								$query = "SELECT date,starttime,endtime, price FROM badmintonslots
 										WHERE MONTH(date) = $month AND YEAR(date) = $year";
 
 								$result = mysqli_query($con, $query);
@@ -159,7 +159,7 @@
 								// Display the Monthly Sales Report
 								echo "<br><div class='pd-20 mb-0'><h5 class=h5 mb-0'>Monthly Booking Sales Report for " . date("F Y", mktime(0, 0, 0, $month, 1, $year)) . "</h5>";
 								echo "<table class='data-table table nowrap'>";
-								echo "<tr><th class='table-plus'>Booking Date</th><th>Sales Amount</th></tr>";
+								echo "<tr><th class='table-plus'>Booking Date</th><th>Start Time</th><th>End Time</th><th>Sales Amount</th></tr>";
 								echo "</div>";
 
 								$total_sales = 0;
@@ -167,6 +167,8 @@
 								while ($row = mysqli_fetch_assoc($result)) {
 									echo "<tr>";
 									echo "<td>" . $row['date'] . "</td>";
+									echo "<td>" . $row['starttime'] . "</td>";
+									echo "<td>" . $row['endtime'] . "</td>";
 									echo "<td>" . $row['price'] . "</td>";
 									echo "</tr>";
 
