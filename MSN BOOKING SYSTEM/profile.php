@@ -80,16 +80,14 @@
                     </div>
                     
                 </div>
-                <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
-
+               
                 <?php
                     // Assuming you have an active MySQLi connection named $conn
 
                     if ($_SESSION['email'] == null) {?>
                         <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
                 <?php }?>
-                                    <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
-                         
+                                  
                                     
                 <?php
                     // Assuming you have an active MySQLi connection named $conn
@@ -101,27 +99,6 @@
                             // Retrieve the email from the session
                             $email = $_SESSION['email'];
 
-                            // // SQL query to select the username based on the email
-                            // $sql = "SELECT name FROM users WHERE email = $email";
-                            // $query = mysqli_prepare($conn, $sql);
-
-                            // // Bind the email parameter
-                            // mysqli_stmt_bind_param($query, "s", $email);
-
-                            // // Execute the query
-                            // mysqli_stmt_execute($query);
-
-                            // // Bind the result variable
-                            // mysqli_stmt_bind_result($query, $name);
-
-                            // // Fetch the result
-                            // if (mysqli_stmt_fetch($query)) {
-                            //     // Access and display the username
-                            //     echo htmlentities($name);
-                            // }
-
-                            // // Close the statement
-                            // mysqli_stmt_close($query);
                             ?>
                 <?php }?>
                     
@@ -135,7 +112,7 @@
                             <?php } ?>
                         </div>
                     </div>
-                <!--<a href="signup.html" class="btn btn-primary rounded-pill py-2 px-4">SignUp</a>-->
+             
             </div>
         </nav>
 
@@ -164,12 +141,7 @@
                 <h6 class="section-title bg-grey text-center text-primary px-3">Profile</h6>
                 <h1 class="text-wheat mb-5">Profile Settings</h1>
             </div>
-                <!--<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <iframe class="position-relative rounded w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5972639959655!2d101.7482732743855!3d3.1999970967752387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc382d83d46cbd%3A0x2a9d48c2b3924c44!2sKompleks%20Sukan%20Setiawangsa!5e0!3m2!1sen!2smy!4v1693050802734!5m2!1sen!2smy" 
-                        frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
-                </div>-->
+              
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <!--<div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">-->
                 <h5 style="color:darkgoldenrod;text-align:center">Edit Profile</h5>
@@ -198,7 +170,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <!--<input type="text" class="form-control" id="gender" name="gender" placeholder="Gender">-->
+                                  
                                     <select class="form-control" name="gender" id="gender" >
                                     <option value="female">Female</option>
                                     <option value="male">Male</option>
@@ -216,18 +188,7 @@
                                 </div>
                             </div>
                             
-                            <!--<div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" >
-                                    <label for="fullname" style="color:lightslategrey">Full Name</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email"  name="email" placeholder="Email">
-                                    <label for="email" style="color:lightslategrey">Email</label>
-                                </div>
-                            </div>-->
+                           
                             
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -235,12 +196,7 @@
                                     <label for="dateOfBirth" style="color:lightslategrey">Date of Birth</label>
                                 </div>
                             </div>
-                            <!--<div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
-                                    <label for="message" style="color:lightslategrey">Message</label>
-                                </div>
-                            </div>-->
+                           
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit" name="saveprofilebutton">Save</button>
                             </div>
@@ -251,52 +207,7 @@
         </div>  
     </div>
 
-    <!--<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');*{padding: 0;margin: 0;font-family: 'Poppins', sans-serif}.container{display:flex;justify-content:center;align-items:center;}.card{width:350px;height:490px;border-radius:10px;overflow:hidden}.card .info{padding:15px;display:flex;justify-content:space-between;border-bottom:1px solid #e1dede;background-color:#e5e5e5;color:black}.card .info button{height:30px;width:80px;border:none;color:#fff;border-radius:4px;background-color:#000;cursor:pointer;text-transform:uppercase}.card .forms{padding:15px}.card .inputs{display:flex;flex-direction:column;margin-bottom:10px}.card .inputs span{font-size:12px;color:black}.card .inputs input{height:40px;padding:0px 10px;font-size:17px;box-shadow:none;outline:none}.card .inputs input[type="text"][readonly]{border: 2px solid rgba(0,0,0,0)}
-    </style> 
-    <div class="container"> 
-        <div class="card"> 
-            <form method="POST">
-                <div class="info"> 
-                    <span>My Profile</span> 
-                    <button type="submit" class="btn btn-primary w-100 py-3" name="saveprofilebutton">Save</button> 
-                </div> 
-                <div class="forms"> 
-                    <div class="inputs"> 
-                        <span>Username</span> 
-                        <input type="text" name="name" id="name"> 
-                    </div> 
-                    <div class="inputs"> 
-                    <span>Full Name</span> 
-                    <input type="text" name="fullname" id="fullname"> 
-                    </div>  
-                    <div class="inputs"> 
-                        <span>Email</span> 
-                    <input type="text" name="email" id="email">
-                    </div>
-                    <div class="inputs"> 
-                    <span>Mobile Phone (+60)</span> 
-                    <input type="text" name="phoneNumber" id="phoneNumber"> 
-                    </div>  
-                    <div class="inputs"> 
-                    <span>Gender(Male/Female)</span> 
-                    <input type="text" name="gender" id="gender"> 
-                    </div> -->
-                    <!--<input type="radio" name="gender" id="female" value="female"> 
-                    </div> 
-                    <div class="inputs"> 
-                    <span>Gender</span> 
-                    <input type="radio" name="gender" id="male" value="male"> 
-                    </div> -->
-                    <!--<div class="inputs"> 
-                    <span>Date of Birth</span> 
-                    <input type="date" name="dateOfBirth" id="dateOfBirth"> 
-                    </div> 
-                </div>
-            </form>
-        </div>
-    </div>-->
-    <!--content end-->                    
+    
 
 
      <!-- Footer Start -->
@@ -350,7 +261,7 @@
 <?php
 session_start();
 include 'Login_v3/db.php';
-// $_SESSION['email'] = $_POST['email']; 
+
 
 if (isset($_SESSION['email'])) {
 
@@ -379,35 +290,6 @@ if (isset($_SESSION['email'])) {
     echo 'document.getElementById("dateOfBirth").value = "' . $dateOfBirth . '";';
     
     echo '</script>';
-
-// if(isset($_SESSION['email'])) {
-// 	var_dump($_POST['$email']);
-
-//     header("Location: ../profile.php");
-// }
-
-
-    // $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' ");
-
-    
-
-
-    // if (isset($_POST['saveprofilebutton'])) {
-        
-    //     $fullname = $_POST['fullname'];
-    //     $phoneNumber = $_POST['phoneNumber'];
-    //     $gender = $_POST['gender'];
-    //     $dateOfBirth = $_POST['dateOfBirth'];
-    //     $email = $_POST['email'];
-    //     $code = rand();
-
-    //     $sql =  "UPDATE users SET fullname ='$fullname' , phoneNumber ='$phoneNumber',gender ='$gender',dateOfBirth ='$dateOfBirth' WHERE email = '$email'";
-    //     $qry = mysqli_query($conn,$sql);
-
-    //     echo '<script>';
-    //     echo 'alert("Save Succesfully")';
-    //     echo '</script>';
-    // }
     
 ?>
    

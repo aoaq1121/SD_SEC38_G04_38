@@ -1,11 +1,6 @@
 <?php
 // Connect to the database
-$con = mysqli_connect("localhost", "root", "root", "msnbooking");
-
-// Check connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+include 'dbconnect.php';
 
 if (isset($_GET['id']) && isset($_GET['type'])) {
     $id = $_GET['id'];

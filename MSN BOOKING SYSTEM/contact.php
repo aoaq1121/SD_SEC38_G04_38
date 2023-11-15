@@ -79,7 +79,7 @@
                     </div>
                     
                 </div>
-                <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+                
 
                 <?php
                     // Assuming you have an active MySQLi connection named $conn
@@ -87,7 +87,7 @@
                     if ($_SESSION['email'] == null) {?>
                         <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
                 <?php }?>
-                                    <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+                                   
                          
                                     
                 <?php
@@ -100,27 +100,7 @@
                             // Retrieve the email from the session
                             $email = $_SESSION['email'];
 
-                            // // SQL query to select the username based on the email
-                            // $sql = "SELECT name FROM users WHERE email = $email";
-                            // $query = mysqli_prepare($conn, $sql);
-
-                            // // Bind the email parameter
-                            // mysqli_stmt_bind_param($query, "s", $email);
-
-                            // // Execute the query
-                            // mysqli_stmt_execute($query);
-
-                            // // Bind the result variable
-                            // mysqli_stmt_bind_result($query, $name);
-
-                            // // Fetch the result
-                            // if (mysqli_stmt_fetch($query)) {
-                            //     // Access and display the username
-                            //     echo htmlentities($name);
-                            // }
-
-                            // // Close the statement
-                            // mysqli_stmt_close($query);
+                    
                             ?>
                 <?php }?>
                     
@@ -240,7 +220,7 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <?php include 'protect.php'?>
+                                
                                     <input type="text" class="form-control" id="yourname" name="yourname"  title="Please Enter Your Name" placeholder="Your Name" required>
                                     <label for="name" style="color:lightslategrey">Your Name</label>
                                 </div>

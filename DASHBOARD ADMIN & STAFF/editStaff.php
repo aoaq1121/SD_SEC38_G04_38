@@ -36,23 +36,7 @@
 
 		gtag("config", "G-GBZ3SGGX85");
 	</script>
-	<!-- Google Tag Manager -->
-	<script>
-		(function(w, d, s, l, i) {
-			w[l] = w[l] || [];
-			w[l].push({
-				"gtm.start": new Date().getTime(),
-				event: "gtm.js"
-			});
-			var f = d.getElementsByTagName(s)[0],
-				j = d.createElement(s),
-				dl = l != "dataLayer" ? "&l=" + l : "";
-			j.async = true;
-			j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-			f.parentNode.insertBefore(j, f);
-		})(window, document, "script", "dataLayer", "GTM-NXZMQSS");
-	</script>
-	<!-- End Google Tag Manager -->
+	
 
 
 </head>
@@ -61,82 +45,7 @@
 <body>
 <?php include 'header.php'?>
 
-	<div class="right-sidebar">
-		<div class="sidebar-title">
-			<h3 class="weight-600 font-16 text-blue">
-				Layout Settings
-				<span class="btn-block font-weight-400 font-12">User Interface Settings</span>
-			</h3>
-			<div class="close-sidebar" data-toggle="right-sidebar-close">
-				<i class="icon-copy ion-close-round"></i>
-			</div>
-		</div>
-		<div class="right-sidebar-body customscroll">
-			<div class="right-sidebar-body-content">
-				<h4 class="weight-600 font-18 pb-10">Header Background</h4>
-				<div class="sidebar-btn-group pb-30 mb-10">
-					<a href="javascript:void(0);" class="btn btn-outline-primary header-white active">White</a>
-					<a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
-				</div>
-
-				<h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
-				<div class="sidebar-btn-group pb-30 mb-10">
-					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light">White</a>
-					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
-				</div>
-
-				<h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
-				<div class="sidebar-radio-group pb-10 mb-10">
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebaricon-1" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-1" checked="" />
-						<label class="custom-control-label" for="sidebaricon-1"><i class="fa fa-angle-down"></i></label>
-					</div>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebaricon-2" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-2" />
-						<label class="custom-control-label" for="sidebaricon-2"><i class="ion-plus-round"></i></label>
-					</div>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebaricon-3" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-3" />
-						<label class="custom-control-label" for="sidebaricon-3"><i class="fa fa-angle-double-right"></i></label>
-					</div>
-				</div>
-
-				<h4 class="weight-600 font-18 pb-10">Menu List Icon</h4>
-				<div class="sidebar-radio-group pb-30 mb-10">
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebariconlist-1" name="menu-list-icon" class="custom-control-input" value="icon-list-style-1" checked="" />
-						<label class="custom-control-label" for="sidebariconlist-1"><i class="ion-minus-round"></i></label>
-					</div>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebariconlist-2" name="menu-list-icon" class="custom-control-input" value="icon-list-style-2" />
-						<label class="custom-control-label" for="sidebariconlist-2"><i class="fa fa-circle-o" aria-hidden="true"></i></label>
-					</div>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebariconlist-3" name="menu-list-icon" class="custom-control-input" value="icon-list-style-3" />
-						<label class="custom-control-label" for="sidebariconlist-3"><i class="dw dw-check"></i></label>
-					</div>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebariconlist-4" name="menu-list-icon" class="custom-control-input" value="icon-list-style-4" checked="" />
-						<label class="custom-control-label" for="sidebariconlist-4"><i class="icon-copy dw dw-next-2"></i></label>
-					</div>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebariconlist-5" name="menu-list-icon" class="custom-control-input" value="icon-list-style-5" />
-						<label class="custom-control-label" for="sidebariconlist-5"><i class="dw dw-fast-forward-1"></i></label>
-					</div>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="sidebariconlist-6" name="menu-list-icon" class="custom-control-input" value="icon-list-style-6" />
-						<label class="custom-control-label" for="sidebariconlist-6"><i class="dw dw-next"></i></label>
-					</div>
-				</div>
-
-				<div class="reset-options pt-30 text-center">
-					<button class="btn btn-danger" id="reset-settings">
-						Reset Settings
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+<?php include 'rightsidebar.php';?>
 
 	<?php include 'leftsidebar.php';?>
 	<div class="mobile-menu-overlay"></div>
@@ -177,22 +86,21 @@
                                             </ul>
                                             <div class="tab-content">
                                                 
-                                                <!-- Setting Tab start -->
+                                                
                                                 <div class="tab-pane fade show active" id="setting" role="tabpanel">
                                                     <div class="profile-setting">
 
 													
-<!-- Your HTML form goes here -->
-<?php 
-                                            include "../MSN BOOKING SYSTEM/Login_v3/db.php";
+
+											<?php 
+                                            include 'dbconnect.php';
                                             if (isset($_GET['id'])) {
                                                 $id = $_GET['id'];
-                                                // Now you can use $customerId to fetch and edit the specific customer's data
-                                                //$id=$_POST['id'];
+                                                
                                             
                                                 include "processStaff.php";
                                             $StaffQry=getStaffInfo($id);
-                                            //echo "<br>no of record:".mysqli_num_rows($userQry);
+                                            
                                             
                                             $StaffInfo=mysqli_fetch_assoc($StaffQry);
                                             
@@ -278,7 +186,7 @@
                                                     </div>
 													
                                                 </div>
-                                                <!-- Setting Tab End -->
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -329,9 +237,7 @@
 				});
 		});
 	</script>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
+	
 </body>
 
 </html>

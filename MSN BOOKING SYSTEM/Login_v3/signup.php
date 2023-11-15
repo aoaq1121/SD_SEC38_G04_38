@@ -35,7 +35,7 @@
 			<div class="wrap-login100">
 				<form action="sendEmail.php" method="post" class="login100-form validate-form">
 					<span class="login100-form-logo">
-						<!--<i class="zmdi zmdi-landscape"></i>-->
+					
 						<img style="height:90px;weight:90px"src="images/logo.png">
 					</span>
 
@@ -62,20 +62,6 @@
 					</div>
 					
 						
-						<!--<input  type="checkbox" onclick="myFunction()">Show Password-->
-					
-					
-
-					<!--<div class="wrap-input100 validate-input" data-validate="Confirm password">
-						<input class="input100" type="password" name="cpassword" id="cpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" placeholder="Confirm Password" minlength="6" maxlength="15" title="At least 6 or more characters that must contain at least one number and one uppercase and lowercase letter." required="">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>-->
-					<!--<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>-->
 
 					<div class="container-login100-form-btn">
 						<button type="submit" name="submit" class="login100-form-btn">

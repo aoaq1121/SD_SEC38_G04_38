@@ -101,22 +101,13 @@
                                 <i class="dw dw-user1"></i> Change Password
                             </a>
                             <?php }?>
-							<!--<a class="dropdown-item" href="profile.php"
-								><i class="dw dw-settings2"></i> Setting</a
-							>
-							<a class="dropdown-item" href="faq.php"
-								><i class="dw dw-help"></i> Help</a
-							>-->
+							
 							<a class="dropdown-item" href="..\MSN BOOKING SYSTEM\index.php"
 								><i class="dw dw-logout"></i> Log Out</a
 							>
 						</div>
 					</div>
 				</div>
-				<!--<div class="github-link">
-					<a href="https://github.com/dropways/deskapp" target="_blank"
-						><img src="vendors/images/github.svg" alt=""
-					/></a>
-				</div>-->
+				
 			</div>
 		</div>

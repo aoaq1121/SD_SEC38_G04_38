@@ -80,7 +80,7 @@
                     </div>
                     
                 </div>
-                <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+               
 
                 <?php
                     // Assuming you have an active MySQLi connection named $conn
@@ -88,7 +88,7 @@
                     if ($_SESSION['email'] == null) {?>
                         <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
                 <?php }?>
-                                    <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+                                    
                          
                                     
                 <?php
@@ -101,27 +101,6 @@
                             // Retrieve the email from the session
                             $email = $_SESSION['email'];
 
-                            // // SQL query to select the username based on the email
-                            // $sql = "SELECT name FROM users WHERE email = $email";
-                            // $query = mysqli_prepare($conn, $sql);
-
-                            // // Bind the email parameter
-                            // mysqli_stmt_bind_param($query, "s", $email);
-
-                            // // Execute the query
-                            // mysqli_stmt_execute($query);
-
-                            // // Bind the result variable
-                            // mysqli_stmt_bind_result($query, $name);
-
-                            // // Fetch the result
-                            // if (mysqli_stmt_fetch($query)) {
-                            //     // Access and display the username
-                            //     echo htmlentities($name);
-                            // }
-
-                            // // Close the statement
-                            // mysqli_stmt_close($query);
                             ?>
                 <?php }?>
                     
@@ -166,44 +145,11 @@
             </div>
                 
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <!--<div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">-->
-                <!--<h5 style="color:darkgoldenrod;text-align:center">Change Password</h5>-->
+              
                 
                     <form style="text-align:center" method="POST">
                         <div class="row g-3">
-                           <!-- <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="currentpass" minlength="6" maxlength="15" id="currentpass" placeholder="Current Password" >
-                                    <label for="currentpass" style="color:lightslategrey">Current Password</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email"  name="email" placeholder="Email" readonly>
-                                    <label for="email" style="color:lightslategrey">Email</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" >
-                                    <label for="fullname" style="color:lightslategrey">Full Name</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="gender" name="gender" placeholder="Gender">
-                                    <label for="gender" style="color:lightslategrey">Gender(Male/Female)</label>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
-                                    <label for="phoneNumber" style="color:lightslategrey">Mobile Phone (+60)</label>
-                                </div>
-                            </div>-->
+                          
                             
                             <div class="col-12">
                                 <div class="form-floating">
@@ -235,35 +181,7 @@
         </div>  
     </div>
 
-    <!--<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');*{padding: 0;margin: 0;font-family: 'Poppins', sans-serif}.container{display:flex;justify-content:center;align-items:center;}.card{width:350px;height:450px;border-radius:10px;overflow:hidden}.card .info{padding:15px;display:flex;justify-content:space-between;border-bottom:1px solid #e1dede;background-color:#e5e5e5;color:black}.card .info button{height:30px;width:80px;border:none;color:#fff;border-radius:4px;background-color:#000;cursor:pointer;text-transform:uppercase}.card .forms{padding:15px}.card .inputs{display:flex;flex-direction:column;margin-bottom:10px}.card .inputs span{font-size:12px;color:black}.card .inputs input{height:40px;padding:0px 10px;font-size:17px;box-shadow:none;outline:none}.card .inputs input[type="text"][readonly]{border: 2px solid rgba(0,0,0,0)}
-    </style>                     
-    <div class="container"> 
-        <div class="card"> 
-        <form method="POST">
-                <div class="info"> 
-                    <span>Change Password</span> 
-                    <button type="submit" name="changepasswordbutton">Change</button> 
-                </div>
-                <div class="forms"> 
-                    <div class="inputs"> 
-                        <span>Current Password</span> 
-                        <input type="password" name="currentpass" minlength="6" maxlength="15" id="currentpass"> 
-                    </div> 
-                    <div class="inputs"> 
-                    <span>New Password</span> 
-                    <input type="password" name="password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" id="password"> 
-                    </div>  
-                    <div class="inputs"> 
-                    <span>Confirm Password</span> 
-                    <input type="password" name="cpassword" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" id="cpassword"> 
-                    </div>  
-                </div> 
-            </form>
-        </div>
-    </div>-->
-    <!--content end-->                    
-
+    
 
      <!-- Footer Start -->
      <?php include 'footer.php'; ?>

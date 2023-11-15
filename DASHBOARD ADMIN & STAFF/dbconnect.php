@@ -5,11 +5,11 @@
     $database = "msnbooking"; // Replace with your database name
     
     // Create a database connection
-    $conn = new mysqli($servername, $username, $password, $database);
+    $con = new mysqli($servername, $username, $password, $database);
     
-    $con=mysqli_connect("localhost","root","root","msnbooking");
+    $conn=mysqli_connect("localhost","root","root","msnbooking");
 
-    if (!$con) {
+    if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 ?>

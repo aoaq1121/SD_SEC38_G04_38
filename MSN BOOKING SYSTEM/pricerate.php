@@ -58,7 +58,7 @@
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
                 <h3 class="text-primary m-0"><img src="img/logo.png" alt="Logo"></i> Majlis Sukan Negara</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+               
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -84,7 +84,7 @@
                     if ($_SESSION['email'] == null) {?>
                         <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
                 <?php }?>
-                                    <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+                                   
                          
                                     
                 <?php
@@ -97,27 +97,7 @@
                             // Retrieve the email from the session
                             $email = $_SESSION['email'];
 
-                            // // SQL query to select the username based on the email
-                            // $sql = "SELECT name FROM users WHERE email = $email";
-                            // $query = mysqli_prepare($conn, $sql);
-
-                            // // Bind the email parameter
-                            // mysqli_stmt_bind_param($query, "s", $email);
-
-                            // // Execute the query
-                            // mysqli_stmt_execute($query);
-
-                            // // Bind the result variable
-                            // mysqli_stmt_bind_result($query, $name);
-
-                            // // Fetch the result
-                            // if (mysqli_stmt_fetch($query)) {
-                            //     // Access and display the username
-                            //     echo htmlentities($name);
-                            // }
-
-                            // // Close the statement
-                            // mysqli_stmt_close($query);
+                           
                             ?>
                 <?php }?>
                     

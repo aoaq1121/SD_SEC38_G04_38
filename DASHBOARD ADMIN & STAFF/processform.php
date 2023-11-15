@@ -26,18 +26,18 @@
             postalcode = '$postalcode', state = '$state', country = '$country', bank = '$bank' WHERE username = '$username'";
             echo $sql;
         }
-        mysqli_query($conn,$sql);
+        mysqli_query($con,$sql);
 
 
     }
     
-    if ($conn->query($sql) === TRUE) {
+    if ($con->query($sql) === TRUE) {
         header("Location: profile.php");
         exit;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $con->error;
     }
-    $conn->close();
+    $con->close();
     ?>
 
 

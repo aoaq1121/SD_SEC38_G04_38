@@ -19,20 +19,16 @@
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
      }
      else{
-        //echo "HELLO";
         $id = $_POST['id'];
          $name=$_POST['name'];
          $fullname=$_POST['fullname'];
          $email=$_POST['email'];
-         //$password=$_POST['password'];
          $gender=$_POST['gender'];
          $dateOfBirth=$_POST['dateOfBirth'];
          $phoneNumber=$_POST['phoneNumber'];
-         //print_r($_POST);
          $sqlStr="UPDATE users SET name='".$name."',fullname='".$fullname."',email='".$email."',gender='".$gender."',
          dateOfBirth='".$dateOfBirth."',phoneNumber='".$phoneNumber."' 
          WHERE id='".$id."'";
-         //echo $sqlStr;
          $qry = mysqli_query($con,$sqlStr );
          return $qry;
      }

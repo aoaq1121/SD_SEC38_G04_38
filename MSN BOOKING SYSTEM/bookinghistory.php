@@ -59,8 +59,7 @@
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
                 <h3 class="text-primary m-0"><img src="img/logo.png" alt="Logo"></i> Majlis Sukan Negara</h1>
-                <!-- <i class="fa fa-map-marker-alt me-3"> -->
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+ 
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -80,7 +79,7 @@
                     </div>
                     
                 </div>
-                <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+            
 
                 <?php
                     // Assuming you have an active MySQLi connection named $conn
@@ -88,7 +87,7 @@
                     if ($_SESSION['email'] == null) {?>
                         <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
                 <?php }?>
-                                    <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+                                   
                          
                                     
                 <?php
@@ -144,14 +143,9 @@
                 
                 <h1 class="text-wheat mb-5">Booking History</h1>
             </div>
-                <!--<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <iframe class="position-relative rounded w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5972639959655!2d101.7482732743855!3d3.1999970967752387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc382d83d46cbd%3A0x2a9d48c2b3924c44!2sKompleks%20Sukan%20Setiawangsa!5e0!3m2!1sen!2smy!4v1693050802734!5m2!1sen!2smy" 
-                        frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
-                </div>-->
+                
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <!--<div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">-->
+        
                
 					
 					
@@ -174,7 +168,7 @@
 
 							
 							$query = "SELECT bsid,date,starttime,endtime,price FROM badmintonslots WHERE email = '$selectemail'";
-                            //echo $query;
+                          
 							$result = mysqli_query($conn, $query);
 							while( $row = mysqli_fetch_assoc($result)){
 
@@ -198,8 +192,7 @@
         </div>  
     </div>
 
-    
-    <!--content end-->                    
+                 
 
 
      <!-- Footer Start -->

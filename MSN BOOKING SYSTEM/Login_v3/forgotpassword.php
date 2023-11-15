@@ -33,42 +33,20 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form action="" method="post" class="login100-form validate-form">
+				<form action="forgotPasswordEmail.php" method="post" class="login100-form validate-form">
 					<span class="login100-form-logo">
 						<img style="height:90px;weight:90px"src="images/logo.png">
-						<!--<i class="zmdi zmdi-landscape"></i>-->
+						
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
 						Password Recovery
 					</span>
-					
-					<!--<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="name" id="name" placeholder="Name" required="">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>-->
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter email">
 						<input class="input100" type="email" name="email" id="email" placeholder="Email" maxlength="30" required="">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter new password">
-						<input class="input100" type="password" name="password" id="password" placeholder="New Password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" required="">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-
-					<!--<div class="wrap-input100 validate-input" data-validate="Confirm password">
-						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="[._%+\-@#](?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" required="">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>-->
-
-					<!--<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>-->
 
 					<div class="container-login100-form-btn">
 						<button type="submit" name="resetpasswordbutton" class="login100-form-btn">

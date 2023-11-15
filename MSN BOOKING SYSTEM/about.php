@@ -79,7 +79,7 @@
                     </div>
                     
                 </div>
-                <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+              
 
                 <?php
                     // Assuming you have an active MySQLi connection named $conn
@@ -87,7 +87,7 @@
                     if ($_SESSION['email'] == null) {?>
                         <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
                 <?php }?>
-                                    <!-- <a href="../MSN BOOKING SYSTEM/Login_v3/login.php" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>  -->
+                                   
                          
                                     
                 <?php
@@ -100,27 +100,7 @@
                             // Retrieve the email from the session
                             $email = $_SESSION['email'];
 
-                            // // SQL query to select the username based on the email
-                            // $sql = "SELECT name FROM users WHERE email = $email";
-                            // $query = mysqli_prepare($conn, $sql);
-
-                            // // Bind the email parameter
-                            // mysqli_stmt_bind_param($query, "s", $email);
-
-                            // // Execute the query
-                            // mysqli_stmt_execute($query);
-
-                            // // Bind the result variable
-                            // mysqli_stmt_bind_result($query, $name);
-
-                            // // Fetch the result
-                            // if (mysqli_stmt_fetch($query)) {
-                            //     // Access and display the username
-                            //     echo htmlentities($name);
-                            // }
-
-                            // // Close the statement
-                            // mysqli_stmt_close($query);
+                           
                             ?>
                 <?php }?>
                     
@@ -134,7 +114,7 @@
                             <?php } ?>
                         </div>
                     </div>
-                <!--<a href="signup.html" class="btn btn-primary rounded-pill py-2 px-4">SignUp</a>-->
+                
             </div>
         </nav>
 
@@ -189,7 +169,7 @@
                         and individuals was initiated to ensure that the nation's sports quality could achieve the highest performance.</p>
                     <p class="mb-4">After the reorganization of the council in 1981, it began to move forward and subsequently developed programs and activities to reach the point visible today. The purpose of establishing the 
                         National Sports Council of Malaysia is in line with the National Sports Policy, which is to fully promote, develop, and achieve excellence in sports at the highest level.</p>-->
-                    <!--<a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>-->
+        
                     <p class="mb-4"><?php echo $about ['history'];?></p>
                 </div>
             </div>

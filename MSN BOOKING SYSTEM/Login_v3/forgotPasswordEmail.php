@@ -4,25 +4,29 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 
-if(isset($_POST['submit']) && $_POST['email'])
+if(isset($_POST['resetpasswordbutton']) && $_POST['email'])
 {   
-
+    
     include "db.php";
+  
+    
     $result = mysqli_query($conn,"SELECT * FROM users WHERE email='" . $_POST['email'] . "'");
+    
     $row= mysqli_num_rows($result);
-    if($row < 1)
+    if($row == 1)
     {
 
        $token = md5($_POST['email']).rand(10,9999);
 
-       mysqli_query($conn, "INSERT INTO users(name, email, email_verification_link ,password) VALUES('" . $_POST['name'] . "', '" . $_POST['email'] . "', '" . $token . "', '" . md5($_POST['password']) . "')");
+    
         
         $link = "<a href='localhost/sd/MSN%20BOOKING%20SYSTEM/Login_v3/verify.php?key=".$_POST['email']."&token=".$token."'>Click and Verify Email</a>";
 
         require('PHPMailer/PHPMailer.php');
         require('PHPMailer/SMTP.php');
         require('PHPMailer/Exception.php');
-       
+      
+        
 
         $mail = new PHPMailer(true);
         try {
@@ -42,8 +46,9 @@ if(isset($_POST['submit']) && $_POST['email'])
       
           //Content
           $mail->isHTML(true);                                  //Set email format to HTML
-          $mail->Subject = 'Email Verification';
-          $mail->Body    = "<a href='localhost/sd/MSN%20BOOKING%20SYSTEM/Login_v3/verify.php?key=".$_POST['email']."&token=".$token."'>Click and Verify Email</a>";
+          $mail->Subject = 'Reset Password';
+          $mail->Body    = "<a href='localhost/sd/MSN%20BOOKING%20SYSTEM/Login_v3/resetPassword.php?key=".$_POST['email']."&token=".$token."'>Reset Password</a>";
+       
       
           $mail->send();
           
@@ -64,5 +69,7 @@ if(isset($_POST['submit']) && $_POST['email'])
       </script>
       ";
     }
+   
+
 }
 ?>

@@ -78,7 +78,7 @@ if (isset($_POST['email'])) {
 			<div class="wrap-login100">
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"  class="login100-form validate-form">
 					<span class="login100-form-logo">
-						<!--<i class="zmdi zmdi-landscape"></i>-->
+					
 						<img style="height:90px;weight:90px"src="images/logo.png">
 					</span>
 
@@ -96,12 +96,7 @@ if (isset($_POST['email'])) {
 						<span class="focus-input100" data-placeholder="&#xf191;"><?php if (isset($password_error)) echo $password_error; ?></span>
 					</div>
 
-					<!--<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>-->
+			
 
 					<div class="text-right">
 						<a  href="forgotpassword.php">
@@ -117,7 +112,7 @@ if (isset($_POST['email'])) {
 
 					<div class="text-center p-t-90">
 						<label for="ckb1" style="font-size: 13px;"> Don't Have An Account?
-						<!--<a class="txt1" href="signup.php">-->
+					
 						<a  href="signup.php">
 							Sign Up Now
 						</a>

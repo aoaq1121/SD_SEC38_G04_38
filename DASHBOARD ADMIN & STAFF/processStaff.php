@@ -26,7 +26,7 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
  else{
 	
     // Retrieve and sanitize the form data
-    //$id = $_GET['id']; // Get the ID from the URL parameter
+    
 	$username = $_POST['id'];
     $fName = $_POST['fName'];
     $email = $_POST['email'];
@@ -44,21 +44,8 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	echo $staffsql;
      $qry = mysqli_query($con,$staffsql );
      return $qry;
-    // Perform the database update here (you should have a database connection)
-    // Use prepared statements to prevent SQL injection
-
-    // Redirect to stafflist.php after updating
-    //return $staffsql;
+    
    
 }
 }
-
-// Fetch the staff details based on the 'id' parameter in the URL and populate the form
-//if (isset($_GET['id'])) {
-    //$id = $_GET['id'];
-    // Fetch the staff details from the database using the $id
-    // Populate the form fields with the fetched data
-//} else {
-    // Handle the case where 'id' is not provided in the URL
-//}
 ?>

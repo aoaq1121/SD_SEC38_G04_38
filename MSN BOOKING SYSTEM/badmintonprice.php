@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <?php
     session_start();
-
-    //if ($_SESSION['email'] != null) {
-        // header("location:MSN BOOKING SYSTEM/Login_v3/login.php");
-    // session_destroy();
-   // }
-
 ?>
 <html lang="en">
 
@@ -96,15 +90,7 @@
                     <small class="text-light"><i class="fa fa-envelope-open me-2"></i>amzar@nsc.gov.my</small>
                 </div>
             </div>
-            <!--<div class="col-lg-4 text-center text-lg-end">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
-                </div>
-            </div>-->
+         
         </div>
     </div>
     <!-- Topbar End -->
@@ -121,11 +107,7 @@
          
 <?php
 // Connect to the database (replace with your database credentials)
-$mysqli = mysqli_connect("localhost", "root", "root", "msnbooking");
-
-if (!$mysqli) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+include("Login_v3/db.php");
 
 
 // Get user input from the form
@@ -147,22 +129,21 @@ $day_of_week = date("N", strtotime($selecteddate));
     $searchDate = $_POST['searchDate'];
     $searchTime = $_POST['searchTime'];
     $endTime = $_POST['endTime'];
-    // echo $bookingID;
-    // echo $selectedCourt;
+
 
 // Determine the price category based on the day of the week
 if ($day_of_week >= 1 && $day_of_week <= 5) {
     // Weekday
-    //$price_category = 'weekdayrate';
+    
     $price = "SELECT weekdayrate FROM editpricerate WHERE id=1";
-    // echo $price;
-    $result = mysqli_query($mysqli, $price);
+  
+    $result = mysqli_query($conn, $price);
 
     if ($result) {
         $price = intval(mysqli_fetch_assoc($result)['weekdayrate'] * $duration);
         $reserve = "INSERT INTO badmintonslots(bookingid,bsid,date,starttime,endtime,isbooked,price,email)VALUES('$bookingID','$selectedCourt','$searchDate','$searchTime','$endTime','1','$price','$email')";
-    // echo $reserve;
-    mysqli_query($mysqli,$reserve);
+
+    mysqli_query($conn,$reserve);
         $priceToPass = $price*100;
         echo"<div class='content-box'>";
         echo "<h3 style='color:white;text-align:left;'>Date: $selecteddate</h3>
@@ -182,21 +163,22 @@ if ($day_of_week >= 1 && $day_of_week <= 5) {
     }
 } else {
     // Weekend
-    //$price_category = 'weekendrate';
+    
     $price = "SELECT weekendrate FROM editpricerate WHERE id=1";
-    $result = mysqli_query($mysqli, $price);
+    $result = mysqli_query($conn, $price);
 
     if ($result) {
         $price = intval(mysqli_fetch_assoc($result)['weekendrate'] * $duration);
         $reserve = "INSERT INTO badmintonslots(bookingid,bsid,date,starttime,endtime,isbooked,price,email)VALUES('$bookingID','$selectedCourt','$searchDate','$searchTime','$endTime','1','$price','$email')";
-    // echo $reserve;
-    mysqli_query($mysqli,$reserve);
+  
+    mysqli_query($conn,$reserve);
         $priceToPass = $price*100;
+        echo"<div class='content-box'>";
         echo "<h3 style='color:white;text-align:left;'>Date: $selecteddate</h3>
               <h3 style='color:white;text-align:left;'>Time: $selectedTime - $selectedendTime</h3>
               <h3 style='color:white;text-align:left;'>Court: $courtselect</h3>
-              <h5 style='color:white;text-align:left;'> Price: RM".$price."</h5>
-              <form method='post' action='http://127.0.0.1:4242/link.php'>
+              <h5 style='color:white;text-align:left;'> Price: RM".$price."</h5>";
+        echo "<form method='post' action='http://127.0.0.1:4242/link.php'>
               <input type='hidden' name='price' value='$priceToPass'/>
 
               <button class='btn btn-primary w-100 py-3' type='submit' name='bookCourt' value='1'>Make Payment</button>
@@ -211,12 +193,7 @@ if ($day_of_week >= 1 && $day_of_week <= 5) {
 echo "</div>";
 
 
-// Query the database to fetch the price based on the price category
 
-
-// Close the database connection
-//mysqli_stmt_close($stmt);
-//mysqli_close($mysqli);
 ?>
 
 

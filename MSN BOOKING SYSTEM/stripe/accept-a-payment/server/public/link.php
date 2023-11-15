@@ -78,22 +78,22 @@ try {
       <!--<a href="/">home</a>-->
       <h1>Card Method</h1>
 
-      <p>
-        <!--<h4>Try a <a href="https://stripe.com/docs/testing#cards" target="_blank">test card</a>:</h4>-->
+      <!--<p>
+        <h4>Try a <a href="https://stripe.com/docs/testing#cards" target="_blank">test card</a>:</h4>
         <div>
           <code>4000004580000002</code> (Visa)
         </div>
         <div>
           <code>5555555555554444</code> (Mastercard)
         </div>
-        <!--<div>
+        <div>
           <code>4000002500003155</code> (Requires <a href="https://www.youtube.com/watch?v=2kc-FjU2-mY" target="_blank">3DSecure</a>)
-        </div>-->
-      </p>
+        </div>
+      </p>--->
 
-      <p>
+      <!--<p>
         Expiration: 11/28, CVC: 555 
-      </p>
+      </p>-->
 
       <form id="payment-form">
         <h3>Contact info</h3>
