@@ -127,7 +127,7 @@
                                                                     </div>
                                                                     <div class="form-group">
                                                                     <label for="durationvalue">Duration Value</label>
-                                                                    <input class="form-control form-control-lg" type="text" pattern="[A-Za-z0-9]" name="durationvalue" required><br>
+                                                                    <input class="form-control form-control-lg" type="text"  name="durationvalue" required><br>
                                                                     </div>
                                                                     
 

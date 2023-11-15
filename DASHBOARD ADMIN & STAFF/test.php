@@ -194,7 +194,7 @@
 								<ul class="nav nav-tabs customtab" role="tablist">
 									
 										<?php 
-                                            include "../MSN BOOKING SYSTEM/Login_v3/db.php";
+                                            include 'dbconnect.php';
                                             if (isset($_GET['id'])) {
                                                 $id = $_GET['id'];
                                                 
