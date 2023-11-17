@@ -253,7 +253,9 @@ CREATE TABLE `editabout` (
 --
 
 INSERT INTO `editabout` (`id`, `history`, `visi`, `misi`) VALUES
-(1, 'The National Sports Council was established under the National Sports Council Act of Malaysia 1971 and the National Sports Council (Amendment) Act of 1979.', 'Peneraju Sukan Prestasi Tinggi Terunggul Ke Arah Melahirkan Lebih Ramai Atlet Bertaraf Antarabangsa', 'Memastikan Program Pembangunan Sukan Berprestasi Tinggi Dilaksanakan Secara Menyeluruh, Sistematik Dan Berkesan Di Semua Peringkat');
+(1, 'The National Sports Council was established under the National Sports Council Act of Malaysia 1971 and the National Sports Council (Amendment) Act of 1979.', 
+ 'Peneraju Sukan Prestasi Tinggi Terunggul Ke Arah Melahirkan Lebih Ramai Atlet Bertaraf Antarabangsa', 
+ 'Memastikan Program Pembangunan Sukan Berprestasi Tinggi Dilaksanakan Secara Menyeluruh, Sistematik Dan Berkesan Di Semua Peringkat');
 
 -- --------------------------------------------------------
 
@@ -275,7 +277,7 @@ CREATE TABLE `editcontact` (
 --
 
 INSERT INTO `editcontact` (`id`, `office`, `mobile`, `name`, `email`, `businesshour`) VALUES
-(1, 'Jalan 6/27a, Wangsa Maju, 54200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur', '3-41420082', 'En. Muhammad Amzar Zulhizzam (Penyelia) ', 'amzar@nsc.gov.my', '7.00am - 11.00pm');
+(1, 'Jalan 6/27a, Wangsa Maju, 54200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur', '3-41420082', 'En. Muhammad Amzar Zulhizzam (Penyelia) ', 'amzar@nsc.gov.my', '7.00am - 11.00pm');
 
 -- --------------------------------------------------------
 
