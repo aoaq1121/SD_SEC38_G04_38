@@ -78,7 +78,7 @@
 	<style>
         table {
             border-collapse: collapse;
-            width: 98%;
+            width: 100%;
 			height: 98%;
             margin: 10px auto;
 			

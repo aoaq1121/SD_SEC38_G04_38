@@ -95,7 +95,7 @@ session_start();
 				</div>
 				<div class="login-menu">
 					<ul>
-						<li><a href="#">Login</a></li>
+						<li><a href="adminLogin.php">Login</a></li>
 					</ul>
 				</div>
 			</div>
