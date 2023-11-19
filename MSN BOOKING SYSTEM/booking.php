@@ -291,7 +291,7 @@ if($_SESSION['email']){
                                 
                                         echo "<form method='post' action='badmintonprice.php'>";
                                         while ($row = mysqli_fetch_assoc($output)) {
-                                            echo "<input type='radio' name='selectedCourt' value='{$row['courtid']}' id='court{$row['courtid']}' />";
+                                            echo "<input type='radio' name='selectedCourt' value='{$row['courtid']}' id='court{$row['courtid']}' required/>";
                                             echo "<label for='court{$row['courtid']}'>Court {$row['courtid']}</label><br>";
                                             echo "<input type='hidden' name='searchDate' value='$searchDate'/>";
                                             echo "<input type='hidden' name='searchTime' value='$searchTime'/>";
@@ -329,7 +329,7 @@ if($_SESSION['email']){
                                             
                                             // Check if the court is not booked (not in $bookedCourts array)
                                             if (!in_array($courtId, $bookedCourts)) {
-                                                echo "<input type='radio' name='selectedCourt' value='$courtId' id='court$courtId' />";
+                                                echo "<input type='radio' name='selectedCourt' value='$courtId' id='court$courtId' required/>";
                                                 echo "<label for='court$courtId'>Court $courtId</label><br>";
                                             }
                                         }

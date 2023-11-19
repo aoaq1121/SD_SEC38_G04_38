@@ -33,7 +33,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form action="forgotPasswordEmail.php" method="post" class="login100-form validate-form">
+				<form action="" method="post" class="login100-form validate-form">
 					<span class="login100-form-logo">
 						<img style="height:90px;weight:90px"src="images/logo.png">
 						
@@ -46,6 +46,11 @@
 					<div class="wrap-input100 validate-input" data-validate = "Enter email">
 						<input class="input100" type="email" name="email" id="email" placeholder="Email" maxlength="30" required="">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter new password">
+						<input class="input100" type="password" name="password" id="password" placeholder="New Password" title="Must contain at least one number and one uppercase and lowercase letter and at least 6 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" minlength="6" maxlength="15" required="">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
